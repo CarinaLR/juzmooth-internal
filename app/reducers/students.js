@@ -27,6 +27,35 @@ export const removeStudent = (studentId) => ({
     studentId
 });
 
+//MIDDLEWARE AND REDUX-THUNK
+export const gettingStudents = () => {
+    return async (dispatch) => {
+        const { data } = await axios.get('/students')
+        dispatch(getStudents(students));
+    }
+};
+
+export const newStudent = () => {
+    return async (dispatch) => {
+        const { data } = await axios.post('/students', student)
+        dispatch(addStudent(student));
+    }
+};
+
+export const editStudent = () => {
+    return async (dispatch) => {
+        const { data } = await axios.put('/students', student)
+        dispatch(updateStudent(student))
+    }
+};
+
+export const deleteStudent = () => {
+    return async (dispatch) => {
+        const { data } = await axios.delete('/students', studentId)
+        dispatch(removeStudent(studentId))
+    }
+};
+
 //REDUCER
 export default function reducerStudents(state = [], action) {
     switch(action.type) {

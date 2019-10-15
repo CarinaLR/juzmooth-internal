@@ -27,6 +27,35 @@ export const removeCampus = (campusId) => ({
     campusId
 });
 
+//MIDDLEWARE AND REDUX-THUNK
+export const getCampuses = () => {
+    return async (dispatch) => {
+        const { data } = await axios.get('/campuses')
+        dispatch(getCampuses(campuses));
+    }
+};
+
+export const newCampus = () => {
+    return async (dispatch) => {
+        const { data } = await axios.post('/campuses', campus)
+        dispatch(addCampus(campus));
+    }
+};
+
+export const editCampus = () => {
+    return async (dispatch) => {
+        const { data } = await axios.put('/campuses', campus)
+        dispatch(updateCampus(campus))
+    }
+};
+
+export const deleteCampus = () => {
+    return async (dispatch) => {
+        const { data } = await axios.delete('/campuses', campusId)
+        dispatch(removeCampus(campusId))
+    }
+};
+
 //REDUCER
 export default function reducerCampuses(state = [], action) {
     switch(action.type) {
