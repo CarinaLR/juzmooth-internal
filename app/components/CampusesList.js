@@ -31,7 +31,6 @@ class CampusesList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('STATE CAMPUSES ->', state)
     return {
         campuses: state.campuses,
         students: state.students

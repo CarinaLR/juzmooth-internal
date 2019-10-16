@@ -32,13 +32,23 @@ export const gettingCampuses = () => {
       return async (dispatch) => {
         try {
           const {data} = await axios.get('/api/campuses')
-          
           dispatch(getCampuses(data))
         } catch (error) {
           dispatch(console.error(error))
         }
       }
   }
+
+export const getSingleCampus = (id) => {  
+    return async (dispatch) => {
+      try {
+        const {data} = await axios.get(`/api/campuses/${id}`)    
+        dispatch(getCampuses(data))
+      } catch (error) {
+        dispatch(console.error(error))
+      }
+    }
+}
 
 export const newCampus = () => {
     return async (dispatch) => {

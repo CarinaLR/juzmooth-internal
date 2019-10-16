@@ -39,6 +39,17 @@ export const gettingStudents = () => {
     }
 };
 
+export const getSingleStudent = () => {  
+    return async (dispatch) => {
+      try {
+        const {data} = await axios.get('/api/students/:id')    
+        dispatch(getStudents(data.id))
+      } catch (error) {
+        dispatch(console.error(error))
+      }
+    }
+};
+
 export const newStudent = () => {
     return async (dispatch) => {
         try {
