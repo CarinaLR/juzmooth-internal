@@ -7,9 +7,9 @@ const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
 
 //ACTION CREATORS
-export const getStudents = (students) => ({
+export const getStudents = (data) => ({
     type: GET_STUDENTS,
-    students
+    students: data
 });
 
 export const addStudent = (student) => ({
@@ -30,29 +30,45 @@ export const removeStudent = (studentId) => ({
 //MIDDLEWARE AND REDUX-THUNK
 export const gettingStudents = () => {
     return async (dispatch) => {
-        const { data } = await axios.get('/students')
-        dispatch(getStudents(students));
+        try {
+        const { data } = await axios.get('/api/students')
+        dispatch(getStudents(data))
+        } catch (error) {
+            dispatch(console.error(error))
+        }
     }
 };
 
 export const newStudent = () => {
     return async (dispatch) => {
-        const { data } = await axios.post('/students', student)
-        dispatch(addStudent(student));
+        try {
+        const { data } = await axios.post('/api/students')
+        dispatch(addStudent(data))
+        } catch (error) {
+            dispatch(console.error(error))
+        }
     }
 };
 
 export const editStudent = () => {
     return async (dispatch) => {
-        const { data } = await axios.put('/students', student)
-        dispatch(updateStudent(student))
+        try {
+        const { data } = await axios.put('/students')
+        dispatch(updateStudent(data))
+        } catch (error) {
+            dispatch(console.error(error))
+        }
     }
 };
 
 export const deleteStudent = () => {
     return async (dispatch) => {
+        try {
         const { data } = await axios.delete('/students', studentId)
-        dispatch(removeStudent(studentId))
+        dispatch(removeStudent(data))
+        } catch (error) {
+            dispatch(console.error(error))
+        }
     }
 };
 
@@ -60,6 +76,7 @@ export const deleteStudent = () => {
 export default function reducerStudents(state = [], action) {
     switch(action.type) {
         case GET_STUDENTS:
+            console.log('ACTION STUDENTS ->', action.students)
             return action.students;
         case ADD_STUDENT:
             return [state.students, action.student];

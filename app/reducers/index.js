@@ -2,16 +2,17 @@
 // When you're ready to use it, un-comment the line below!
 
 import { combineReducers } from 'redux'
-import campuses from './campuses'
-import students from './students'
+import  campuses from './campuses'
+import  students  from './students'
 
-// const initialState = {}
+
 
 const rootReducer = combineReducers({
-  campuses,
-  students
+  campuses: campuses,
+  students: students
 })
 
 export default rootReducer
-export * from './campuses'
+export  * from './campuses'
 export * from './students'
+
