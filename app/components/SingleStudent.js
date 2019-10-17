@@ -20,6 +20,7 @@ class SingleStudent extends Component {
             <h1>STUDENT</h1>
             <p>Here is the available information</p>
             <h2>{this.props.students.firstName}{'\n'}{this.props.students.lastName}</h2>
+            <p>Email:{'\n'}{this.props.students.email}</p>
             <p>GPA:{'\n'}{this.props.students.gpa}</p>
             <img src={this.props.students.imageUrl} />
             <br />
