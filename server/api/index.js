@@ -88,7 +88,7 @@ router.get('/campuses/:id', async (req, res, next) => {
   }
 });
 
-router.post('/campuses', async (req, res, next) => {
+router.post('/campuses/newCampus', async (req, res, next) => {
   try {
     const newCampus = await Campus.create(req.body)
     res.json(newCampus)

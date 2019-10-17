@@ -12,9 +12,9 @@ export const getCampuses = (data) => ({
     campuses: data
 });
 
-export const addCampus = (campus) => ({
+export const addCampus = (newCampus) => ({
     type: ADD_CAMPUS,
-    campus
+    campuses: newCampus
 });
 
 export const updateCampus = (campus) => ({
@@ -53,7 +53,7 @@ export const getSingleCampus = (id) => {
 export const newCampus = () => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.post('/campuses', campus)
+        const { data } = await axios.post('/api/campuses')
         dispatch(addCampus(data));
         } catch (error) {
             dispatch(console.error(error))
@@ -91,7 +91,7 @@ export default function reducerCampuses(state = [], action) {
             console.log('ACTION ->', action.campuses)
             return action.campuses;
         case ADD_CAMPUS:
-            return [ ...state, action.campus];
+            return [ ...state, action.newCampus];
         case UPDATE_CAMPUS:
             return state.map((campus) => campus.id === action.campus.id ? action.campus : campus);
         case REMOVE_CAMPUS:

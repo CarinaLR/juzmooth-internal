@@ -18,8 +18,8 @@ body {
 
 nav {
   align-items: center;
-  background-color: rgb(75, 113, 136);
-  color: #c0c0c0;
+  background-color: rgb(86, 126, 151);
+  color: #90ddeb;
   display: flex;
   height: 80px;
   padding: 10px;
@@ -34,6 +34,19 @@ main {
   justify-content: center;
 }
 
-link {
-  color: #c0c0c0;
+nav link {
+  display: flex;
+  flex-direction: row;
+ 
+}
+
+nav a {
+  text-align: center;
+  color: #f7f3f3;
+  display: block;
+  padding: 10px;
+}
+
+nav a:hover {
+  background-color: #555;
 }
