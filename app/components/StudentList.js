@@ -15,7 +15,7 @@ class StudentList extends Component {
     return (
       <div>
         <h1>Students</h1>
-              <h2>Name</h2>
+              <h2>Names</h2>
               {this.props.students.map(student =>
                 (
                     <ul key={student.id}>

@@ -5,6 +5,7 @@ import StudentList from './StudentList'
 import SingleCampus from './SingleCampus'
 import SingleStudent from './SingleStudent'
 import NewCampusForm from './NewCampusForm'
+import NewStudentFrom from './newStudentForm'
 
 const Root = () => {
     return (
@@ -18,6 +19,7 @@ const Root = () => {
         <Link to='/campuses/:id' className='link'><a href=''>Go To Campus</a></Link>
         <Link to='/students/:id' className='link'><a href=''>Student</a></Link>
         <Link to='/campuses/newCampus' className='link'><a href=''>Add New Campus</a></Link>
+        <Link to='/students/newStudent' className='link'><a href=''>Add New Student</a></Link>
         </nav>
         <main>
           <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
@@ -26,9 +28,10 @@ const Root = () => {
           <Route exact path='/' />
           <Route exact path='/campuses' component={CampusesList} />
           <Route exact path='/students' component={StudentList} />
+          <Route exact path='/campuses/newCampus' component={NewCampusForm} />
+          <Route exact path='/students/newStudent' component={NewStudentFrom} />
           <Route exact path='/campuses/:id' component={withRouter(SingleCampus)} />
           <Route exact path='/students/:id' component={SingleStudent} />
-          <Route exact path='/campuses/newCampus' component={NewCampusForm} />
           </Switch>
         </main>
       </div>

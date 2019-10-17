@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 
-class NewCampusForm extends Component {
+class NewStudentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            address: '',
-            description: ''
+            firstName: '',
+            lastName: '',
+            email: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,9 +22,9 @@ class NewCampusForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.setState({
-            name: '',
-            address: '',
-            description: ''
+            firstName: '',
+            lastName: '',
+            email: ''
         })
     }
 
@@ -32,21 +32,21 @@ class NewCampusForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <label>
-                    Name:
+                    First Name:
                     <br/>
-                    <input type='text' id='name' onChange={this.handleChange} value={this.state.name}/>
+                    <input type='text' id='firstName' onChange={this.handleChange} value={this.state.firstName}/>
                 </label>
                 <br/>
                 <label>
-                    Address:
+                    Last Name:
                     <br/>
-                    <input type='text' id='address' omChange={this.handleChange} value={this.state.address}/>
+                    <input type='text' id='lastName' omChange={this.handleChange} value={this.state.lastName}/>
                 </label>
                 <br/>
                 <label>
-                    Description:
+                    Email:
                     <br/>
-                    <input type='text' id='description' onChange={this.handleChange} value={this.state.description}/>
+                    <input type='text' id='email' onChange={this.handleChange} value={this.state.email}/>
                 </label>
                 <br/>
                 <button type='submit'>Submit New Campus</button>
@@ -55,5 +55,4 @@ class NewCampusForm extends Component {
     }
 }
 
-
-export default NewCampusForm
+export default NewStudentForm;

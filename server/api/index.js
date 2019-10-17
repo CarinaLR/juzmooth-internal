@@ -80,6 +80,7 @@ router.get('/campuses', async (req, res, next) => {
 
 router.get('/campuses/:id', async (req, res, next) => {
   try {
+    console.log('CAMPUS/id/route ->',req.params.id)
       const compusById = await Campus.findById(req.params.id)
       res.json(compusById)
   } catch (error) {
@@ -88,9 +89,10 @@ router.get('/campuses/:id', async (req, res, next) => {
   }
 });
 
-router.post('/campuses/newCampus', async (req, res, next) => {
+router.post('/campuses', async (req, res, next) => {
   try {
     const newCampus = await Campus.create(req.body)
+    console.log('NEWCAMPUS ->',newCampus)
     res.json(newCampus)
   } catch (error) {
     console.error(error)

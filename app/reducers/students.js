@@ -50,10 +50,10 @@ export const getSingleStudent = (id) => {
     }
 };
 
-export const newStudent = () => {
+export const newStudent = (student) => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.post('/api/students')
+        const { data } = await axios.post('/api/students', student)
         dispatch(addStudent(data))
         } catch (error) {
             dispatch(console.error(error))
@@ -75,8 +75,8 @@ export const editStudent = () => {
 export const deleteStudent = () => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.delete('/students', studentId)
-        dispatch(removeStudent(data))
+        const { data } = await axios.delete('/students')
+        dispatch(removeStudent(data.id))
         } catch (error) {
             dispatch(console.error(error))
         }
@@ -87,7 +87,6 @@ export const deleteStudent = () => {
 export default function reducerStudents(state = [], action) {
     switch(action.type) {
         case GET_STUDENTS:
-            console.log('ACTION STUDENTS ->', action.students)
             return action.students;
         case ADD_STUDENT:
             return [ ...state, action.student];

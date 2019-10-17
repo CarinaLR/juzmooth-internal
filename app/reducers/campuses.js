@@ -14,7 +14,7 @@ export const getCampuses = (data) => ({
 
 export const addCampus = (newCampus) => ({
     type: ADD_CAMPUS,
-    campuses: newCampus
+    newCampus
 });
 
 export const updateCampus = (campus) => ({
@@ -50,10 +50,10 @@ export const getSingleCampus = (id) => {
     }
 }
 
-export const newCampus = () => {
+export const newCampus = (newCampus) => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.post('/api/campuses')
+        const { data } = await axios.post('/api/campuses', newCampus)
         dispatch(addCampus(data));
         } catch (error) {
             dispatch(console.error(error))
@@ -64,7 +64,7 @@ export const newCampus = () => {
 export const editCampus = () => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.put('/campuses', campus)
+        const { data } = await axios.put('/campuses')
         dispatch(updateCampus(data))
         } catch (error) {
             dispatch(console.error(error))
@@ -75,7 +75,7 @@ export const editCampus = () => {
 export const deleteCampus = () => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.delete('/campuses', campusId)
+        const { data } = await axios.delete('/campuses')
         dispatch(removeCampus(data.id))
         } catch (error) {
             dispatch(console.error(error))

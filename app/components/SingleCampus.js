@@ -13,7 +13,6 @@ class SingleCampus extends Component {
       }
     
     render() {
-        console.log('state ->', this.props.campuses)
         return (
         <div>
             <h1>SINGLE CAMPUS</h1>
