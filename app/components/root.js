@@ -25,7 +25,7 @@ const Root = () => {
           <Route exact path='/campuses' component={CampusesList} />
           <Route exact path='/students' component={StudentList} />
           <Route exact path='/campuses/:id' component={withRouter(SingleCampus)} />
-          <Route exact path='/students/:id' component={withRouter(SingleStudent)} />
+          <Route exact path='/students/:id' component={SingleStudent} />
           </Switch>
         </main>
       </div>

@@ -32,7 +32,7 @@ router.get('/students', async (req, res, next) => {
   }
 });
 
-router.get('students/:id', async (req, res, next) => {
+router.get('/students/:id', async (req, res, next) => {
   try {
       const studentById = await Student.findById(req.params.id)
       res.json(studentById)

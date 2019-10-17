@@ -31,7 +31,7 @@ export const removeCampus = (campusId) => ({
 export const gettingCampuses = () => {  
       return async (dispatch) => {
         try {
-          const {data} = await axios.get('/api/campuses')
+          const { data } = await axios.get('/api/campuses')
           dispatch(getCampuses(data))
         } catch (error) {
           dispatch(console.error(error))
@@ -42,7 +42,7 @@ export const gettingCampuses = () => {
 export const getSingleCampus = (id) => {  
     return async (dispatch) => {
       try {
-        const {data} = await axios.get(`/api/campuses/${id}`)    
+        const { data } = await axios.get(`/api/campuses/${id}`)    
         dispatch(getCampuses(data))
       } catch (error) {
         dispatch(console.error(error))

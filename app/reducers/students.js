@@ -39,11 +39,11 @@ export const gettingStudents = () => {
     }
 };
 
-export const getSingleStudent = () => {  
+export const getSingleStudent = (id) => {  
     return async (dispatch) => {
       try {
-        const {data} = await axios.get('/api/students/:id')    
-        dispatch(getStudents(data.id))
+        const { data } = await axios.get(`/api/students/${id}`)    
+        dispatch(getStudents(data))
       } catch (error) {
         dispatch(console.error(error))
       }
@@ -90,7 +90,7 @@ export default function reducerStudents(state = [], action) {
             console.log('ACTION STUDENTS ->', action.students)
             return action.students;
         case ADD_STUDENT:
-            return [state.students, action.student];
+            return [ ...state, action.student];
         case UPDATE_STUDENT:
             return state.map((student) => student.id === action.student.id ? action.student : student);
         case REMOVE_STUDENT:

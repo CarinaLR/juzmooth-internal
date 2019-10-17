@@ -7,7 +7,8 @@ const students = [{
   firstName: 'Patricio',
   lastName: 'Lopez',
   email: 'plopez@gmail.com',
-  gpa: 3.4
+  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
+  gpa: 3.6
 },{
   firstName: 'Mercy',
   lastName: 'Rodriguez',
@@ -22,25 +23,26 @@ const students = [{
   firstName: 'Jorge',
   lastName: 'Jaramillo',
   email: 'jjaramillo@gmail.com',
-  gpa: 3.4
+  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
+  gpa: 3.9
 }]
 
 const compuses = [{
   name: 'City College',
   address: '138 Street',
-  description: 'Software engineer'
+  description: 'BOASTING WORLD-CLASS ACADEMICS, award-winning faculty and both new and enhanced campuses, today’s City University of New York.'
 },{
   name: 'Sunny College',
   address: '199 Street',
-  description: 'Electrical engineer'
+  description: 'The University must remain responsive to the needs of its urban setting and maintain its close articulation between senior and community college units.'
 },{
   name: 'County College',
   address: '200 Street',
-  description: 'Civil engineer'
+  description: 'Twenty years after the first students entered the academy, a second school for the education of teachers, the Female Normal and High School'
 },{
   name: 'Street College',
   address: '210 Street',
-  description: 'Electrical engineer'
+  description: 'Our mission dates to 1847 when founder Townsend Harris, an early champion of public education and a pioneering diplomat who was the first U.S.”'
 }]
 
 const seed = async () => {

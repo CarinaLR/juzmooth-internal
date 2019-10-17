@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSingleStudent } from '../reducers/students';
 
@@ -9,39 +9,39 @@ class SingleStudent extends Component {
       }
     
       componentDidMount() {
-        this.props.getSingleStudent();
+        this.props.getSingleStudent(this.props.match.params.id);
+        console.log('params ->', this.props.match.params.id)
       }
     
     render() {
-        console.log('props.students ->', this.props.students)
+        console.log('state ->', this.props.students)
         return (
         <div>
-            <h1>SINGLE CAMPUSES</h1>
-            <p>Check ONE campuses available!</p>
-            {this.props.students.map(student =>
-                (
-                <ul key={student.id}>
-                <li>{student.firstName}{'\n'}{student.lastName}</li>
-                </ul>
-                )
-            )}
+            <h1>STUDENT</h1>
+            <p>Here is the available information</p>
+            <h2>{this.props.students.firstName}{'\n'}{this.props.students.lastName}</h2>
+            <p>GPA:{'\n'}{this.props.students.gpa}</p>
+            <img src={this.props.students.imageUrl} />
+            <br />
         <Link to='/students'>Back</Link>
         </div>
         )
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+    console.log('ownProps ->', ownProps.match.params.id)
+    console.log('state - - ->', state)
     return {
         campuses: state.campuses,
-        students: state.students.id
+        students: state.students
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getSingleStudent: () => {
-            dispatch(getSingleStudent())
+        getSingleStudent: (id) => {
+            dispatch(getSingleStudent(id))
         }
     }
 };

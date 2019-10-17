@@ -19,7 +19,7 @@ const Student = db.define('students', {
       },
       imageUrl: {
           type: Sequelize.STRING,
-          defaultValue: 'https://vignette.wikia.nocookie.net/20thcenturyfox/images/a/aa/20100602024832Bart_Simpson.png/revision/latest/scale-to-width-down/310?cb=20160518200655'
+          defaultValue: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlrVDZwL1u-gvslOndx3HjtX4Ofi4gfsHR81aGRo09JsecDyRo'
       },
       gpa: {
           type: Sequelize.DECIMAL,

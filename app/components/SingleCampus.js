@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSingleCampus } from '../reducers/campuses';
 
@@ -19,6 +19,8 @@ class SingleCampus extends Component {
             <h1>SINGLE CAMPUS</h1>
             <p>Check ONE campuses available!</p>
             <h2>{this.props.campuses.name}</h2>
+            <img src={this.props.campuses.imageUrl} />
+            <p>{this.props.campuses.description}</p>
            
         <Link to='/campuses'>Back</Link>
         </div>
