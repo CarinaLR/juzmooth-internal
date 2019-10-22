@@ -40,7 +40,7 @@ class NewCampusForm extends Component {
                 <label>
                     Address:
                     <br/>
-                    <input type='text' id='address' omChange={this.handleChange} value={this.state.address}/>
+                    <input type='text' id='address' onChange={this.handleChange} value={this.state.address}/>
                 </label>
                 <br/>
                 <label>

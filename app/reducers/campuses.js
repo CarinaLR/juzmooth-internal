@@ -2,6 +2,7 @@ import axios from 'axios'
 
 //ACTION TYPE
 const GET_CAMPUSES = 'GET_CAMPUSES';
+const GET_CAMPUS = 'GET_CAMPUS'
 const ADD_CAMPUS = 'ADD_CAMPUS';
 const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';

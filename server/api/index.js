@@ -45,7 +45,10 @@ router.get('/students/:id', async (req, res, next) => {
 router.post('/students', async (req, res, next) => {
   try {
     const newStudent = await Student.create(req.body)
-    res.json(newStudent)
+    const studentData = newStudent.dataValue
+    if(newStudent) {
+      res.json(studentData)
+    }
   } catch (error) {
     console.error(error)
     next(error)

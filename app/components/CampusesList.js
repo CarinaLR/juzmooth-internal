@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { gettingCampuses } from '../reducers/campuses';
+import { gettingStudents } from '../reducers/students'
+import {Link} from 'react-router-dom'
 
 class CampusesList extends Component {
     constructor(props) {
@@ -9,6 +11,7 @@ class CampusesList extends Component {
     
       componentDidMount() {
         this.props.gettingCampuses();
+        // this.props.gettingStudents();
       }
     
     render() {
@@ -20,8 +23,10 @@ class CampusesList extends Component {
             {this.props.campuses.map(campus =>
                 (
                 <ul key={campus.id}>
-                <li>{campus.name}</li>
-                <img src={campus.imageUrl} />
+                    <Link to={`/campuses/${campus.id}`}>
+                        <li>{campus.name}</li>
+                        <img src={campus.imageUrl} />
+                    </Link>
                 </ul>
                 )
             )}

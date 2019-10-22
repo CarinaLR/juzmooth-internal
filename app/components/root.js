@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link, Switch, withRouter} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import CampusesList from './CampusesList'
 import StudentList from './StudentList'
 import SingleCampus from './SingleCampus'
@@ -16,8 +16,6 @@ const Root = () => {
         <Link to='/' className='link'><a href=''>Home</a></Link>
         <Link to='/campuses' className='link'><a href=''>Campuses</a></Link>
         <Link to='/students' className='link'><a href=''>Students</a></Link>
-        <Link to='/campuses/:id' className='link'><a href=''>Go To Campus</a></Link>
-        <Link to='/students/:id' className='link'><a href=''>Student</a></Link>
         <Link to='/campuses/newCampus' className='link'><a href=''>Add New Campus</a></Link>
         <Link to='/students/newStudent' className='link'><a href=''>Add New Student</a></Link>
         </nav>
@@ -30,7 +28,7 @@ const Root = () => {
           <Route exact path='/students' component={StudentList} />
           <Route exact path='/campuses/newCampus' component={NewCampusForm} />
           <Route exact path='/students/newStudent' component={NewStudentFrom} />
-          <Route exact path='/campuses/:id' component={withRouter(SingleCampus)} />
+          <Route exact path='/campuses/:id' component={SingleCampus} />
           <Route exact path='/students/:id' component={SingleStudent} />
           </Switch>
         </main>

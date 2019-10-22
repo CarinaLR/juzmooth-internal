@@ -13,6 +13,7 @@ class SingleCampus extends Component {
       }
     
     render() {
+        console.log('PROPS ->', this.props.campuses)
         return (
         <div>
             <h1>SINGLE CAMPUS</h1>
@@ -20,7 +21,7 @@ class SingleCampus extends Component {
             <h2>{this.props.campuses.name}</h2>
             <img src={this.props.campuses.imageUrl} />
             <p>{this.props.campuses.description}</p>
-           
+            
         <Link to='/campuses'>Back</Link>
         </div>
         )

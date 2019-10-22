@@ -2,6 +2,7 @@ import axios from 'axios'
 
 //ACTION TYPE
 const GET_STUDENTS = 'GET_STUDENTS';
+const GET_STUDENT = 'GET_STUDENT'
 const ADD_STUDENT = 'ADD_STUDENT';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const REMOVE_STUDENT = 'REMOVE_STUDENT';
@@ -12,9 +13,14 @@ export const getStudents = (data) => ({
     students: data
 });
 
+export const getOneStudent = (student) => ({
+    type: GET_STUDENT,
+    student
+})
+
 export const addStudent = (student) => ({
     type: ADD_STUDENT,
-    student
+    students: student
 });
 
 export const updateStudent = (student) => ({
@@ -88,8 +94,10 @@ export default function reducerStudents(state = [], action) {
     switch(action.type) {
         case GET_STUDENTS:
             return action.students;
+        case GET_STUDENT:
+            return action.student 
         case ADD_STUDENT:
-            return [ ...state, action.student];
+            return [ ...state, action.students];
         case UPDATE_STUDENT:
             return state.map((student) => student.id === action.student.id ? action.student : student);
         case REMOVE_STUDENT:

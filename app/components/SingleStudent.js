@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSingleStudent } from '../reducers/students';
+import { getSingleCampus } from '../reducers/campuses';
 
 class SingleStudent extends Component {
     constructor(props) {

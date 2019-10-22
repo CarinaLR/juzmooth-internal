@@ -18,8 +18,8 @@ const Student = require('./models/Student')
 // Puppy.belongsTo(Owner)
 
 //ASSOCIATIONS
-Student.belongsTo(Campus)
 Campus.hasMany(Student)
+Student.belongsTo(Campus)
 
 module.exports = {
   // Include your models in this exports object as well!

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { gettingStudents } from '../reducers/students'
+import { Link } from 'react-router-dom'
 
 class StudentList extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class StudentList extends Component {
               {this.props.students.map(student =>
                 (
                     <ul key={student.id}>
-                       <li>{student.firstName}{'\n'}{student.lastName}</li>  
+                      <Link to={`/students/${student.id}`}>
+                        <li>{student.firstName}{'\n'}{student.lastName}</li>  
+                       </Link>
                     </ul>
                 )
             )}

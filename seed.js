@@ -8,23 +8,27 @@ const students = [{
   lastName: 'Lopez',
   email: 'plopez@gmail.com',
   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
-  gpa: 3.6
+  gpa: 3.6,
+  campusId: 1
 },{
   firstName: 'Mercy',
   lastName: 'Rodriguez',
   email: 'mrodriguezz@gmail.com',
-  gpa: 3.4
+  gpa: 3.4,
+  campusId: 2
 },{
   firstName: 'Ivonne',
   lastName: 'Lopez',
   email: 'ilopez@gmail.com',
-  gpa: 3.4
+  gpa: 3.4,
+  campusId: 3
 },{
   firstName: 'Jorge',
   lastName: 'Jaramillo',
   email: 'jjaramillo@gmail.com',
   imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
-  gpa: 3.9
+  gpa: 3.9,
+  campusId: 4
 }]
 
 const compuses = [{
@@ -46,18 +50,18 @@ const compuses = [{
 }]
 
 const seed = async () => {
-  await db.sync({force: true})
+  await db.sync()
+  //{force: true}
 
   // seed your database here!
+  await Promise.all(compuses.map((campus) => {
+    return Campus.create(campus)
+  }))
 
   await Promise.all(students.map((student) => {
     return Student.create(student)
   }))
 
-  await Promise.all(compuses.map((campus) => {
-    return Campus.create(campus)
-  }))
-  
 
   console.log(green('Seeding success!'))
   db.close()

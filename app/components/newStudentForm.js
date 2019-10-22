@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { newStudent } from '../reducers/students'
+import { connect } from 'react-redux'
 
 
 class NewStudentForm extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             firstName: '',
             lastName: '',
@@ -12,6 +14,9 @@ class NewStudentForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    // componentDidMount() {
+    //     this.props.newStudent();
+    // }
 
     handleChange(event) {
         this.setState({
@@ -40,7 +45,7 @@ class NewStudentForm extends Component {
                 <label>
                     Last Name:
                     <br/>
-                    <input type='text' id='lastName' omChange={this.handleChange} value={this.state.lastName}/>
+                    <input type='text' id='lastName' onChange={this.handleChange} value={this.state.lastName}/>
                 </label>
                 <br/>
                 <label>
@@ -55,4 +60,17 @@ class NewStudentForm extends Component {
     }
 }
 
-export default NewStudentForm;
+const mapStateToProps = state => {
+    return {
+        students: state.students
+
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        newStudent: (student) => dispatch(newStudent(student)) 
+    }
+}
+
+export default  connect(mapStateToProps, mapDispatchToProps )(NewStudentForm);
