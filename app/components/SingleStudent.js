@@ -11,7 +11,6 @@ class SingleStudent extends Component {
     
       componentDidMount() {
         this.props.getSingleStudent(this.props.match.params.id);
-        console.log('params ->', this.props.match.params.id)
       }
     
     render() {
@@ -32,8 +31,7 @@ class SingleStudent extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('ownProps ->', ownProps.match.params.id)
-    console.log('state - - ->', state)
+    console.log('state.student ->', state.students)
     return {
         campuses: state.campuses,
         students: state.students

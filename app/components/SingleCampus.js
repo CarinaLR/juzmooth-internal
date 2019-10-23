@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSingleCampus } from '../reducers/campuses';
 
+
 class SingleCampus extends Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,8 @@ class SingleCampus extends Component {
       }
     
     render() {
-        console.log('PROPS ->', this.props.campuses)
+        console.log('PROPS Campuses->', this.props.campuses)
+        console.log('PROPS Students->', this.props.students)
         return (
         <div>
             <h1>SINGLE CAMPUS</h1>
@@ -29,7 +31,7 @@ class SingleCampus extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('ownProps ->', ownProps.match.params.id)
+    console.log('state.student ->', state.students)
     return {
         campuses: state.campuses,
         students: state.students

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { newStudent } from '../reducers/students'
 import { connect } from 'react-redux'
+import axios from 'axios';
 
 
 class NewStudentForm extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             firstName: '',
             lastName: '',
@@ -14,23 +15,26 @@ class NewStudentForm extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    // componentDidMount() {
-    //     this.props.newStudent();
-    // }
-
+    
     handleChange(event) {
         this.setState({
             [event.target.id]: event.target.value,
         })
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        this.setState({
-            firstName: '',
-            lastName: '',
-            email: ''
-        })
+    async handleSubmit(event) {
+            event.preventDefault();
+            try{
+            const res = await axios.post('/api/students', this.state)
+            this.props.newStudent(res.data)
+            this.setState({
+                firstName: '',
+                lastName: '',
+                email: ''
+            })
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     render() {
@@ -54,7 +58,7 @@ class NewStudentForm extends Component {
                     <input type='text' id='email' onChange={this.handleChange} value={this.state.email}/>
                 </label>
                 <br/>
-                <button type='submit'>Submit New Campus</button>
+                <button type='submit'>Submit New Student</button>
             </form>
         )
     }
@@ -62,15 +66,17 @@ class NewStudentForm extends Component {
 
 const mapStateToProps = state => {
     return {
+        campuses: state.campuses,
         students: state.students
-
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        newStudent: (student) => dispatch(newStudent(student)) 
+        newStudent: (data) => {
+            dispatch(newStudent(data))
+        }
     }
-}
+};
 
-export default  connect(mapStateToProps, mapDispatchToProps )(NewStudentForm);
+export default  connect(mapStateToProps, mapDispatchToProps)(NewStudentForm);
