@@ -17,9 +17,9 @@ export const getOneStudent = (student) => ({
     student
 })
 
-export const addStudent = (student) => ({
+export const addStudent = (newStudent) => ({
     type: ADD_STUDENT,
-    students: student
+    students: newStudent
 });
 
 export const removeStudent = (studentId) => ({
@@ -50,10 +50,10 @@ export const getSingleStudent = (id) => {
     }
 };
 
-export const newStudent = (student) => {
+export const newStudent = (newStudent) => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.post('/api/students', student)
+        const { data } = await axios.post('/api/students', newStudent)
         dispatch(addStudent(data))
         } catch (error) {
             dispatch(console.error(error))

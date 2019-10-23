@@ -72,7 +72,6 @@ export const deleteCampus = (id) => {
 export default function reducerCampuses(state = [], action) {
     switch(action.type) {
         case GET_CAMPUSES:
-            console.log('ACTION ->', action.campuses)
             return action.campuses;
         case ADD_CAMPUS:
             return [ ...state, action.newCampus];

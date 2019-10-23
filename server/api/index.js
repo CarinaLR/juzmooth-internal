@@ -45,9 +45,8 @@ router.get('/students/:id', async (req, res, next) => {
 router.post('/students', async (req, res, next) => {
   try {
     const newStudent = await Student.create(req.body)
-    const studentData = newStudent.dataValue
     if(newStudent) {
-      res.json(studentData)
+      res.json(newStudent.dataValue)
     }
   } catch (error) {
     console.error(error)
@@ -96,7 +95,6 @@ router.get('/campuses/:id', async (req, res, next) => {
 router.post('/campuses', async (req, res, next) => {
   try {
     const newCampus = await Campus.create(req.body)
-    console.log('NEWCAMPUS ->',newCampus)
     if (newCampus) {
       res.json(newCampus.dataValue)
     }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { newStudent } from '../reducers/students'
 import { connect } from 'react-redux'
-import axios from 'axios';
-
 
 class NewStudentForm extends Component {
     constructor(props) {
@@ -23,11 +21,20 @@ class NewStudentForm extends Component {
         })
     }
 
-    async handleSubmit(event) {
+    handleSubmit(event) {
             event.preventDefault();
+            const firstName = event.target.firstName.value
+            const lastName = event.target.lastName.value
+            const email = event.target.email.value
+
+            const newData = {
+                firstName: firstName,
+                lastName:lastName,
+                email: email
+            }
+
             try{
-            const res = await axios.post('/api/students', this.state)
-            this.props.newStudent(res.data)
+            this.props.newStudent(newData)
             this.setState({
                 firstName: '',
                 lastName: '',
