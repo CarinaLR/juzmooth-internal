@@ -2,9 +2,7 @@ import axios from 'axios'
 
 //ACTION TYPE
 const GET_CAMPUSES = 'GET_CAMPUSES';
-const GET_CAMPUS = 'GET_CAMPUS'
 const ADD_CAMPUS = 'ADD_CAMPUS';
-const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 const REMOVE_CAMPUS = 'REMOVE_CAMPUS';
 
 //ACTION CREATORS
@@ -15,12 +13,7 @@ export const getCampuses = (data) => ({
 
 export const addCampus = (newCampus) => ({
     type: ADD_CAMPUS,
-    newCampus
-});
-
-export const updateCampus = (campus) => ({
-    type: UPDATE_CAMPUS,
-    campus
+    campuses: newCampus
 });
 
 export const removeCampus = (campusId) => ({
@@ -62,22 +55,12 @@ export const newCampus = (newCampus) => {
     }
 };
 
-export const editCampus = () => {
-    return async (dispatch) => {
-        try {
-        const { data } = await axios.put('/campuses')
-        dispatch(updateCampus(data))
-        } catch (error) {
-            dispatch(console.error(error))
-        }
-    }
-};
 
-export const deleteCampus = () => {
+export const deleteCampus = (id) => {
     return async (dispatch) => {
         try {
-        const { data } = await axios.delete('/campuses')
-        dispatch(removeCampus(data.id))
+        const { data } = await axios.delete(`/api/campuses/${id}`)
+        dispatch(removeCampus(data))
         } catch (error) {
             dispatch(console.error(error))
         }
@@ -93,8 +76,6 @@ export default function reducerCampuses(state = [], action) {
             return action.campuses;
         case ADD_CAMPUS:
             return [ ...state, action.newCampus];
-        case UPDATE_CAMPUS:
-            return state.map((campus) => campus.id === action.campus.id ? action.campus : campus);
         case REMOVE_CAMPUS:
             return [state].filter((campus) => campus.id !== action.campusId);
         default:

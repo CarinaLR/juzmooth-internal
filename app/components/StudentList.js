@@ -23,6 +23,7 @@ class StudentList extends Component {
                       <Link to={`/students/${student.id}`}>
                         <li>{student.firstName}{'\n'}{student.lastName}</li>  
                        </Link>
+                       <button type='delete'>Remove Student</button>
                     </ul>
                 )
             )}

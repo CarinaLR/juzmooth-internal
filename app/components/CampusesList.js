@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { gettingCampuses } from '../reducers/campuses';
-import { gettingStudents } from '../reducers/students'
+import { gettingCampuses, deleteCampus} from '../reducers/campuses';
 import {Link} from 'react-router-dom'
+import axios from 'axios';
 
 class CampusesList extends Component {
     constructor(props) {
@@ -11,9 +11,18 @@ class CampusesList extends Component {
     
       componentDidMount() {
         this.props.gettingCampuses();
-        // this.props.gettingStudents();
       }
-    
+
+    async deleteButton(event) {
+        event.preventDefault();
+        try {
+        const remove = await axios.delete('/api/campuses', this.props.params.id)
+        this.props.deleteCampus(remove.data);
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
     render() {
         console.log('props.campuses ->', this.props.campuses)
         return (
@@ -27,6 +36,7 @@ class CampusesList extends Component {
                         <li>{campus.name}</li>
                         <img src={campus.imageUrl} />
                     </Link>
+                    <button type='delete' onClick={this.deleteButton.bind(this)}>Remove Campus</button>
                 </ul>
                 )
             )}
@@ -45,7 +55,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         gettingCampuses: () => {
-            dispatch(gettingCampuses())
+            dispatch(gettingCampuses(), deleteCampus())
         }
     }
 };

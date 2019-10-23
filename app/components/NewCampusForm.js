@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { newCampus } from '../reducers/campuses'
 import {connect} from 'react-redux'
 
@@ -9,7 +8,8 @@ class NewCampusForm extends Component {
         this.state = {
             name: '',
             address: '',
-            description: ''
+            description: '',
+            errorMessage: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,18 +21,29 @@ class NewCampusForm extends Component {
         })
     }
 
-    async handleSubmit(event) {
+    handleSubmit(event) {
         event.preventDefault();
+        const name = event.target.name.value
+        const address = event.target.address.value
+        const description = event.target.description.value
+
+        const newData = {
+                name: name,
+                address: address,
+                description: description,
+                errorMessage: ''
+        }
         try {
-            const res = await axios.post('/api/campuses', this.state)
-            this.props.newCampus(res.data)
+            this.props.newCampus(newData)
             this.setState({
                 name: '',
                 address: '',
-                description: ''
+                description: '',
+                errorMessage: ''
             })
         } catch (error) {
             console.error(error)
+            this.setState({errorMessage: 'There was a problem creating new campus'})
         }
     }
 

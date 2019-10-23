@@ -55,14 +55,16 @@ router.post('/students', async (req, res, next) => {
   }
 });
 
-router.put('/students/:id', async (req, res, next) => {
+
+router.delete('/students/:id', async (req, res, next) => {
   try {
-    const updatedStudent = await Student.update(req.body, {
+    const findStudent = await Student.destroy({
       where: {
         id: req.params.id
       }
     })
-    res.json(updatedStudent)
+      res.status(200) 
+      res.json(findStudent)
   } catch (error) {
     console.error(error)
     next(error)
@@ -83,7 +85,6 @@ router.get('/campuses', async (req, res, next) => {
 
 router.get('/campuses/:id', async (req, res, next) => {
   try {
-    console.log('CAMPUS/id/route ->',req.params.id)
       const compusById = await Campus.findById(req.params.id)
       res.json(compusById)
   } catch (error) {
@@ -96,21 +97,24 @@ router.post('/campuses', async (req, res, next) => {
   try {
     const newCampus = await Campus.create(req.body)
     console.log('NEWCAMPUS ->',newCampus)
-    res.json(newCampus)
+    if (newCampus) {
+      res.json(newCampus.dataValue)
+    }
   } catch (error) {
     console.error(error)
     next(error)
   }
 });
 
-router.put('/campuses/:id', async (req, res, next) => {
+router.delete('/campuses/:id', async (req, res, next) => {
   try {
-    const updatedCampus = Campus.update(req.body, {
+    const findCampus = await Campus.destroy({
       where: {
         id: req.params.id
       }
     })
-    res.json(updatedCampus)
+      res.status(200) 
+      res.json(findCampus)
   } catch (error) {
     console.error(error)
     next(error)

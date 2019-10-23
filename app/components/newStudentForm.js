@@ -10,7 +10,8 @@ class NewStudentForm extends Component {
         this.state = {
             firstName: '',
             lastName: '',
-            email: ''
+            email: '',
+            errorMessage: ''
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,10 +31,12 @@ class NewStudentForm extends Component {
             this.setState({
                 firstName: '',
                 lastName: '',
-                email: ''
+                email: '',
+                errorMessage: ''
             })
         } catch (error) {
             console.error(error)
+            this.setState({errorMessage: 'There was a problem adding student'}) 
         }
     }
 
