@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { gettingStudents } from '../reducers/students'
+import { gettingStudents , deleteStudent} from '../reducers/students'
 import { Link } from 'react-router-dom'
 
 class StudentList extends Component {
@@ -10,6 +10,14 @@ class StudentList extends Component {
 
   componentDidMount() {
     this.props.gettingStudents();
+  }
+
+  deleteButton(studentId) {
+    try {
+      this.props.deleteStudent(studentId)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   render() {
@@ -23,7 +31,7 @@ class StudentList extends Component {
                       <Link to={`/students/${student.id}`}>
                         <li>{student.firstName}{'\n'}{student.lastName}</li>  
                        </Link>
-                       <button type='delete'>Remove Student</button>
+                       <button type='delete' onClick={ () => {this.deleteButton(student.id)}}>Remove Student</button>
                     </ul>
                 )
             )}
@@ -33,7 +41,6 @@ class StudentList extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('STATE STUDENTS ->', state)
     return {
         campuses: state.campuses,
         students: state.students
@@ -44,6 +51,9 @@ const mapDispatchToProps = dispatch => {
     return {
         gettingStudents: () => {
             dispatch(gettingStudents())
+        },
+        deleteStudent: (id) => {
+          dispatch(deleteStudent(id))
         }
     }
 };

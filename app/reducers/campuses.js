@@ -67,7 +67,6 @@ export const deleteCampus = (id) => {
     }
 };
 
-
 //REDUCER
 export default function reducerCampuses(state = [], action) {
     switch(action.type) {
@@ -76,7 +75,7 @@ export default function reducerCampuses(state = [], action) {
         case ADD_CAMPUS:
             return [ ...state, action.newCampus];
         case REMOVE_CAMPUS:
-            return [state].filter((campus) => campus.id !== action.campusId);
+            return state.filter((campus) => campus.id !== action.campusId);
         default:
             return state;
     }

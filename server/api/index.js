@@ -57,13 +57,9 @@ router.post('/students', async (req, res, next) => {
 
 router.delete('/students/:id', async (req, res, next) => {
   try {
-    const findStudent = await Student.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-      res.status(200) 
-      res.json(findStudent)
+    const foundStudent = await Student.findById(req.params.id)
+    await foundStudent.destroy();
+      res.sendStatus(204) 
   } catch (error) {
     console.error(error)
     next(error)
@@ -106,13 +102,9 @@ router.post('/campuses', async (req, res, next) => {
 
 router.delete('/campuses/:id', async (req, res, next) => {
   try {
-    const findCampus = await Campus.destroy({
-      where: {
-        id: req.params.id
-      }
-    })
-      res.status(200) 
-      res.json(findCampus)
+    const foundCampus = await Campus.findById(req.params.id)
+    await foundCampus.destroy();
+      res.sendStatus(204) 
   } catch (error) {
     console.error(error)
     next(error)

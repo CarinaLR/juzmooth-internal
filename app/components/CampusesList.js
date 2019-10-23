@@ -2,29 +2,26 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { gettingCampuses, deleteCampus} from '../reducers/campuses';
 import {Link} from 'react-router-dom'
-import axios from 'axios';
 
 class CampusesList extends Component {
     constructor(props) {
         super(props);
+        this.deleteButton = this.deleteButton.bind(this)
       }
     
-      componentDidMount() {
+    componentDidMount() {
         this.props.gettingCampuses();
       }
 
-    async deleteButton(event) {
-        event.preventDefault();
+    deleteButton(campusId) {
         try {
-        const remove = await axios.delete('/api/campuses', this.props.params.id)
-        this.props.deleteCampus(remove.data);
+        this.props.deleteCampus(campusId);
         } catch (error) {
             console.error(error)
         }
     }
 
     render() {
-        console.log('props.campuses ->', this.props.campuses)
         return (
         <div>
             <h1>CAMPUSES</h1>
@@ -36,7 +33,7 @@ class CampusesList extends Component {
                         <li>{campus.name}</li>
                         <img src={campus.imageUrl} />
                     </Link>
-                    <button type='delete' onClick={this.deleteButton.bind(this)}>Remove Campus</button>
+                    <button type='delete' onClick={ () => {this.deleteButton(campus.id)}}>Remove Campus</button>
                 </ul>
                 )
             )}
@@ -55,7 +52,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         gettingCampuses: () => {
-            dispatch(gettingCampuses(), deleteCampus())
+            dispatch(gettingCampuses())
+        },
+        deleteCampus: (id) => {
+            dispatch(deleteCampus(id))
         }
     }
 };

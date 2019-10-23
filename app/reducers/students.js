@@ -83,7 +83,7 @@ export default function reducerStudents(state = [], action) {
         case ADD_STUDENT:
             return [ ...state, action.students];
         case REMOVE_STUDENT:
-            return [state.students].filter((student) => student.id !== action.studentId);
+            return state.filter((student) => student.id !== action.studentId);
         default:
             return state;
     }
