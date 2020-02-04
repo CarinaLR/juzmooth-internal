@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const router = require('express').Router()
-const Campus = require('../db/models/Campus')
-const Student = require('../db/models/Student')
+const router = require('express').Router();
+const Product = require('../db/models/Product');
+const Customer = require('../db/models/Customer');
 
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
@@ -20,96 +20,95 @@ const Student = require('../db/models/Student')
 
 // router.use('/Campus', require('./Campus'))
 
-//================STUDENT-ROUTERS===============================
+//================CUSTOMER-ROUTERS===============================
 
-router.get('/students', async (req, res, next) => {
+router.get('/customers', async (req, res, next) => {
   try {
-      const allStudents = await Student.findAll()
-      res.json(allStudents)
+    const allCustomers = await Customer.findAll();
+    res.json(allCustomers);
   } catch (error) {
-      console.error(error)
-      next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-router.get('/students/:id', async (req, res, next) => {
+router.get('/customers/:id', async (req, res, next) => {
   try {
-      const studentById = await Student.findById(req.params.id)
-      res.json(studentById)
+    const customerById = await Customer.findById(req.params.id);
+    res.json(customerById);
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-router.post('/students', async (req, res, next) => {
+router.post('/customer', async (req, res, next) => {
   try {
-    const newStudent = await Student.create(req.body)
-    if(newStudent) {
-      res.json(newStudent.dataValue)
+    const newCustomer = await Customer.create(req.body);
+    if (newCustomer) {
+      res.json(newCustomer.dataValue);
     }
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-
-router.delete('/students/:id', async (req, res, next) => {
+router.delete('/customers/:id', async (req, res, next) => {
   try {
-    const foundStudent = await Student.findById(req.params.id)
-    await foundStudent.destroy();
-      res.sendStatus(204) 
+    const foundCustomer = await Customer.findById(req.params.id);
+    await foundCustomer.destroy();
+    res.sendStatus(204);
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-//===============CAMPUS-ROUTERS==================================
+//===============PRODUCT-ROUTERS==================================
 
-router.get('/campuses', async (req, res, next) => {
+router.get('/products', async (req, res, next) => {
   try {
-      const allCampuses = await Campus.findAll()
-      res.json(allCampuses)
+    const allProducts = await Product.findAll();
+    res.json(allProducts);
   } catch (error) {
-      console.error(error)
-      next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-router.get('/campuses/:id', async (req, res, next) => {
+router.get('/products/:id', async (req, res, next) => {
   try {
-      const compusById = await Campus.findById(req.params.id)
-      res.json(compusById)
+    const productById = await Product.findById(req.params.id);
+    res.json(productById);
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-router.post('/campuses', async (req, res, next) => {
+router.post('/products', async (req, res, next) => {
   try {
-    const newCampus = await Campus.create(req.body)
-    if (newCampus) {
-      res.json(newCampus.dataValue)
+    const newProduct = await Product.create(req.body);
+    if (newProduct) {
+      res.json(newProduct.dataValue);
     }
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
 });
 
-router.delete('/campuses/:id', async (req, res, next) => {
+router.delete('/products/:id', async (req, res, next) => {
   try {
-    const foundCampus = await Campus.findById(req.params.id)
-    await foundCampus.destroy();
-      res.sendStatus(204) 
+    const foundProduct = await Product.findById(req.params.id);
+    await foundProduct.destroy();
+    res.sendStatus(204);
   } catch (error) {
-    console.error(error)
-    next(error)
+    console.error(error);
+    next(error);
   }
-})
+});
 
 // If someone makes a request that starts with `/api`,
 // but you DON'T have a corresponding router, this piece of
@@ -117,9 +116,9 @@ router.delete('/campuses/:id', async (req, res, next) => {
 // error-handling endware!
 
 router.use((req, res, next) => {
-  const err = new Error('API route not found!')
-  err.status = 404
-  next(err)
+  const err = new Error('API route not found!');
+  err.status = 404;
+  next(err);
 });
 
-module.exports = router
+module.exports = router;

@@ -25,7 +25,7 @@ createdb $MY_APP_NAME
 
 ```
 
-- `npm run start-dev`
+- `npm run start:dev`
 
 ![](/assets/jLogo.png)
 
