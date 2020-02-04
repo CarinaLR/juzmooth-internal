@@ -1,75 +1,97 @@
-const {db} = require('./server/db')
-const {green, red} = require('chalk')
-const Student = require('./server/db/models/Student')
-const Campus = require('./server/db/models/Campus')
+const { db } = require('./server/db');
+const { green, red } = require('chalk');
+const Customer = require('./server/db/models/Customer');
+const Product = require('./server/db/models/Product');
 
-const students = [{
-  firstName: 'Patricio',
-  lastName: 'Lopez',
-  email: 'plopez@gmail.com',
-  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
-  gpa: 3.6,
-  campusId: 1
-},{
-  firstName: 'Mercy',
-  lastName: 'Rodriguez',
-  email: 'mrodriguezz@gmail.com',
-  gpa: 3.4,
-  campusId: 2
-},{
-  firstName: 'Ivonne',
-  lastName: 'Lopez',
-  email: 'ilopez@gmail.com',
-  gpa: 3.4,
-  campusId: 3
-},{
-  firstName: 'Jorge',
-  lastName: 'Jaramillo',
-  email: 'jjaramillo@gmail.com',
-  imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp0BE2G0egbNbhmpORtNK9AO7nsShZxZicFbN50aZsC0MX5E_d',
-  gpa: 3.9,
-  campusId: 4
-}]
+const customers = [
+  {
+    firstName: 'Patricio',
+    lastName: 'Lopez',
+    email: 'plopez@gmail.com',
+    address: 'Las Acacias N47-56',
+    description: '1 Cucumber Jugo Verde',
+    productId: 1,
+  },
+  {
+    firstName: 'Mercy',
+    lastName: 'Rodriguez',
+    email: 'mrodriguezz@gmail.com',
+    address: 'Las Acacias N47-56',
+    description: '3 Ginger Shots',
+    productId: 2,
+  },
+  {
+    firstName: 'Ivonne',
+    lastName: 'Lopez',
+    email: 'ilopez@gmail.com',
+    address: 'Cumbaya N123-23',
+    description: '2 Red Lemonade',
+    productId: 3,
+  },
+  {
+    firstName: 'Jorge',
+    lastName: 'Jaramillo',
+    email: 'jjaramillo@gmail.com',
+    address: 'Cumbaya N123-23',
+    description: '1 Turmeric Shot',
+    productId: 4,
+  },
+];
 
-const compuses = [{
-  name: 'City College',
-  address: '138 Street',
-  description: 'BOASTING WORLD-CLASS ACADEMICS, award-winning faculty and both new and enhanced campuses, today’s City University of New York.'
-},{
-  name: 'Sunny College',
-  address: '199 Street',
-  description: 'The University must remain responsive to the needs of its urban setting and maintain its close articulation between senior and community college units.'
-},{
-  name: 'County College',
-  address: '200 Street',
-  description: 'Twenty years after the first students entered the academy, a second school for the education of teachers, the Female Normal and High School'
-},{
-  name: 'Street College',
-  address: '210 Street',
-  description: 'Our mission dates to 1847 when founder Townsend Harris, an early champion of public education and a pioneering diplomat who was the first U.S.”'
-}]
+const products = [
+  {
+    name: 'Cucumber Jugo Verde',
+    imageUrl:
+      'https://images.unsplash.com/flagged/photo-1557753478-b9fb74f39eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1533&q=80',
+    description:
+      'El consumo habitual de este jugo ayuda a desintoxicar el organismo, al ser diuretico.',
+  },
+  {
+    name: 'Red Lemonade',
+    imageUrl:
+      'https://images.unsplash.com/photo-1549127554-0cf3baf6e45e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
+    description:
+      'El consumo habitual de esta bebida ayuda a rehidratar mientras depura el organismo.',
+  },
+  {
+    name: 'Ginger Shot',
+    imageUrl:
+      'https://images.unsplash.com/photo-1567667638406-db4d5f363abf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
+    description:
+      'Depura el organismo, calma los antojos de azucar por lo que es ideal para acompanar dietas para bajar de peso.',
+  },
+  {
+    name: 'Turmeric Shot',
+    imageUrl:
+      'https://images.unsplash.com/photo-1498604214351-227898deb373?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80',
+    description:
+      'Our mission dates to 1847 when founder Townsend Harris, an early champion of public education and a pioneering diplomat who was the first U.S.”',
+  },
+];
 
 const seed = async () => {
-  await db.sync()
+  await db.sync();
   //{force: true}
 
   // seed your database here!
-  await Promise.all(compuses.map((campus) => {
-    return Campus.create(campus)
-  }))
+  await Promise.all(
+    products.map(product => {
+      return Product.create(product);
+    })
+  );
 
-  await Promise.all(students.map((student) => {
-    return Student.create(student)
-  }))
+  await Promise.all(
+    customers.map(customer => {
+      return Customer.create(customer);
+    })
+  );
 
+  console.log(green('Seeding success!'));
+  db.close();
+};
 
-  console.log(green('Seeding success!'))
-  db.close()
-}
-
-seed()
-  .catch(err => {
-    console.error(red('Oh noes! Something went wrong!'))
-    console.error(err)
-    db.close()
-  })
+seed().catch(err => {
+  console.error(red('Oh noes! Something went wrong!'));
+  console.error(err);
+  db.close();
+});
