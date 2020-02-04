@@ -5,7 +5,7 @@ import CustomersList from './CustomersList';
 import SingleProduct from './SingleProduct';
 import SingleCustomer from './SingleCustomer';
 import NewProductForm from './NewProductForm';
-import NewCustomerFrom from './newCustomerForm';
+import NewCustomerForm from './newCustomerForm';
 
 const Root = () => {
   return (
@@ -55,7 +55,7 @@ const Root = () => {
             <Route
               exact
               path="/customers/newCustomer"
-              component={NewCustomerFrom}
+              component={NewCustomerForm}
             />
             <Route exact path="/products/:id" component={SingleProduct} />
             <Route exact path="/customers/:id" component={SingleCustomer} />
