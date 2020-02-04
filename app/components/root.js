@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import CampusesList from './CampusesList';
-import StudentList from './StudentList';
-import SingleCampus from './SingleCampus';
-import SingleStudent from './SingleStudent';
-import NewCampusForm from './NewCampusForm';
-import NewStudentFrom from './newStudentForm';
+import ProductsList from './ProductsList';
+import CustomersList from './CustomersList';
+import SingleProduct from './SingleProduct';
+import SingleCustomer from './SingleCustomer';
+import NewProductForm from './NewProductForm';
+import NewCustomerFrom from './newCustomerForm';
 
 const Root = () => {
   return (
@@ -16,16 +16,22 @@ const Root = () => {
           <Link to="/" className="link">
             <a href="">Home</a>
           </Link>
-          <Link to="/campuses" className="link">
+          <Link to="/products" className="link">
             <a href="">Productos</a>
           </Link>
-          <Link to="/students" className="link">
+          <Link to="/customers" className="link">
             <a href="">Clientes</a>
           </Link>
-          <Link to="/campuses/newCampus" className="link">
+          <Link to="/products/newProduct" className="link">
+            <a href="">Product</a>
+          </Link>
+          <Link to="/customers/newCustomer" className="link">
+            <a href="">Customer</a>
+          </Link>
+          <Link className="link">
             <a href="">Ordenes</a>
           </Link>
-          <Link to="/students/newStudent" className="link">
+          <Link className="link">
             <a href="">Entregas</a>
           </Link>
         </nav>
@@ -39,16 +45,20 @@ const Root = () => {
           />
           <Switch>
             <Route exact path="/" />
-            <Route exact path="/campuses" component={CampusesList} />
-            <Route exact path="/students" component={StudentList} />
-            <Route exact path="/campuses/newCampus" component={NewCampusForm} />
+            <Route exact path="/products" component={ProductsList} />
+            <Route exact path="/customers" component={CustomersList} />
             <Route
               exact
-              path="/students/newStudent"
-              component={NewStudentFrom}
+              path="/products/newProduct"
+              component={NewProductForm}
             />
-            <Route exact path="/campuses/:id" component={SingleCampus} />
-            <Route exact path="/students/:id" component={SingleStudent} />
+            <Route
+              exact
+              path="/customers/newCustomer"
+              component={NewCustomerFrom}
+            />
+            <Route exact path="/products/:id" component={SingleProduct} />
+            <Route exact path="/customers/:id" component={SingleCustomer} />
           </Switch>
         </main>
       </div>

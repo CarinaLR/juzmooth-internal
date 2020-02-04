@@ -1,18 +1,15 @@
 // `combineReducers` is not currently being used...but it should!
 // When you're ready to use it, un-comment the line below!
 
-import { combineReducers } from 'redux'
-import  campuses from './campuses'
-import  students  from './students'
-
-
+import { combineReducers } from 'redux';
+import products from './products';
+import customers from './customers';
 
 const rootReducer = combineReducers({
-  campuses: campuses,
-  students: students
-})
+  products: products,
+  customers: customers,
+});
 
-export default rootReducer
-export  * from './campuses'
-export * from './students'
-
+export default rootReducer;
+export * from './products';
+export * from './customers';
