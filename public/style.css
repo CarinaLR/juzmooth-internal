@@ -14,14 +14,19 @@ body {
   padding: 0;
   margin: 0;
   width: 100vw;
+  font-family: 'Open Sans', arial, sans-serif;
+  color: rgb(98, 185, 90);
 }
 
 nav {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   background-color: rgb(98, 185, 90);
   color: #90ddeb;
   display: flex;
   height: 80px;
+  width: 100vw;
   padding: 10px;
   border-radius: 5px;
   margin-right: 20;
@@ -47,7 +52,7 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #555;
+  background-color: rgb(108, 199, 143);
 }
 
 form label {
@@ -58,4 +63,8 @@ form label {
 
 input {
   width: 380px;
+}
+
+img {
+  width: 100vw;
 }

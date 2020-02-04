@@ -5,14 +5,14 @@ import CustomersList from './CustomersList';
 import SingleProduct from './SingleProduct';
 import SingleCustomer from './SingleCustomer';
 import NewProductForm from './NewProductForm';
-import NewCustomerForm from './newCustomerForm';
+import NewCustomerForm from './NewCustomerForm';
 
 const Root = () => {
   return (
     <Router>
       <div>
         <nav>
-          Welcome!
+          Juzmooth
           <Link to="/" className="link">
             <a href="">Home</a>
           </Link>
@@ -44,7 +44,7 @@ const Root = () => {
             }
           />
           <Switch>
-            <Route exact path="/" />
+            <Route exact path="/home" />
             <Route exact path="/products" component={ProductsList} />
             <Route exact path="/customers" component={CustomersList} />
             <Route

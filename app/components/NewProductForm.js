@@ -27,7 +27,6 @@ class NewProductForm extends Component {
 
     const newData = {
       name: name,
-      address: address,
       description: description,
       errorMessage: '',
     };
