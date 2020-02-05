@@ -34,6 +34,7 @@ class ProductsList extends Component {
                 <img src={product.imageUrl} className="imgProducts" />
               </Link>
               <button
+                className="prodButton"
                 type="delete"
                 onClick={() => {
                   this.deleteButton(product.id);
@@ -41,7 +42,9 @@ class ProductsList extends Component {
               >
                 Remove Product
               </button>
-              <button type="description">Description</button>
+              <button className="prodButton" type="description">
+                Description
+              </button>
             </ul>
           ))}
         </div>

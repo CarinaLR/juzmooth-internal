@@ -92,12 +92,18 @@ input {
   margin-top: 20;
   font-family: 'Open Sans', arial, sans-serif;
   color: rgb(98, 185, 90);
+  position: relative;
+  top: 75px;
+  bottom: 75px;
 }
 
 .note {
   display: flex;
   justify-content: center;
   color: rgb(98, 185, 90);
+  position: relative;
+  top: 75px;
+  bottom: 75px;
 }
 
 .imgProducts {
@@ -120,8 +126,21 @@ input {
   margin-left: 10;
   margin-right: 10;
   position: relative;
+  top: 150px;
+  bottom: 150;
+  outline: 1px solid coral;
+  text-align: justify;
 }
 
 ul li {
   display: inline-block;
+}
+
+.prodButton {
+  display: inline-block;
+  flex-direction: row;
+  align-content: space-around;
+  position: relative;
+  left: 0 auto;
+  right: 10;
 }
