@@ -141,6 +141,61 @@ ul li {
   flex-direction: row;
   align-content: space-around;
   position: relative;
-  left: 0 auto;
-  right: 10;
+  margin-left: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
 }
+
+#customerTitle {
+  display: flex;
+  justify-content: center;
+  padding: 20;
+  margin: 0;
+  margin-top: 20;
+  font-family: 'Open Sans', arial, sans-serif;
+  color: rgb(98, 185, 90);
+  position: relative;
+  top: 75px;
+  bottom: 75px;
+}
+
+#customerNote {
+  display: flex;
+  justify-content: center;
+  color: rgb(98, 185, 90);
+  position: relative;
+  top: 75px;
+  bottom: 75px;
+}
+
+.customerListContainer li {
+  height: 5vh;
+  margin-left: 0;
+  margin-right: 0;
+  width: 15vw;
+  display: inline-block;
+  position: relative;
+  top: 150px;
+}
+
+.customerButton {
+  height: 5vh;
+  margin-left: 0;
+  margin-right: 0;
+  width: 10vw;
+  display: inline-block;
+  position: relative;
+  margin-left: 25px;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  top: 150px;
+}
+
+/* #emojis {
+  opacity: 40%;
+  position: relative;
+  top: 10;
+  bottom: 10;
+} */

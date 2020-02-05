@@ -22,12 +22,14 @@ class CustomersList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>CLIENTES</h1>
-        <h2>Nombres</h2>
+      <div className="customerContainer">
+        <h1 id="customerTitle">CLIENTES</h1>
+        <p id="customerNote">
+          Si necesitas mas informacion, por favor ingresa tu autorizacion.
+        </p>
         {this.props.customers.map(customer => (
-          <ul key={customer.id}>
-            <Link to={`/students/${customer.id}`}>
+          <ul className="customerListContainer" key={customer.id}>
+            <Link to={`/customers/${customer.id}`}>
               <li>
                 {customer.firstName}
                 {'\n'}
@@ -35,12 +37,16 @@ class CustomersList extends Component {
               </li>
             </Link>
             <button
+              className="customerButton"
               type="delete"
               onClick={() => {
                 this.deleteButton(customer.id);
               }}
             >
               Remove Customer
+            </button>
+            <button className="customerButton" type="description">
+              Description
             </button>
           </ul>
         ))}
