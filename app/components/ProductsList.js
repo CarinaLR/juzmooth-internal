@@ -23,14 +23,32 @@ class ProductsList extends Component {
 
   render() {
     return (
-      <div>
-        <h1>PRODUCTOS</h1>
-        <p>Mira nuestros productos disponibles!</p>
-        {this.props.products.map(product => (
+      <div className="productListContainer">
+        <h1 id="productTitle">PRODUCTOS</h1>
+        <p className="note">Mira nuestros productos disponibles!</p>
+        <div className="imgContainer">
+          {this.props.products.map(product => (
+            <ul key={product.id}>
+              <Link to={`/products/${product.id}`}>
+                <li>{product.name}</li>
+                <img src={product.imageUrl} className="imgProducts" />
+              </Link>
+              <button
+                type="delete"
+                onClick={() => {
+                  this.deleteButton(product.id);
+                }}
+              >
+                Remove Product
+              </button>
+            </ul>
+          ))}
+        </div>
+        {/* {this.props.products.map(product => (
           <ul key={product.id}>
             <Link to={`/products/${product.id}`}>
               <li>{product.name}</li>
-              <img src={product.imageUrl} />
+              <img src={product.imageUrl} className="imgProducts" />
             </Link>
             <button
               type="delete"
@@ -41,7 +59,7 @@ class ProductsList extends Component {
               Remove Product
             </button>
           </ul>
-        ))}
+        ))} */}
       </div>
     );
   }
