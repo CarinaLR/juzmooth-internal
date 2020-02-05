@@ -6,27 +6,28 @@ import SingleProduct from './SingleProduct';
 import SingleCustomer from './SingleCustomer';
 import NewProductForm from './NewProductForm';
 import NewCustomerForm from './NewCustomerForm';
+import Home from './Home';
 
 const Root = () => {
   return (
     <Router>
       <div>
         <nav>
-          Juzmooth
+          <h2>Juzmooth</h2>
           <Link to="/" className="link">
-            <a href="">Home</a>
+            <a href="/">Home</a>
           </Link>
           <Link to="/products" className="link">
-            <a href="">Productos</a>
+            <a href="/products">Productos</a>
           </Link>
           <Link to="/customers" className="link">
-            <a href="">Clientes</a>
+            <a href="/customers">Clientes</a>
           </Link>
           <Link to="/products/newProduct" className="link">
-            <a href="">Product</a>
+            <a href="/products/newProduct">Nuevo Producto</a>
           </Link>
           <Link to="/customers/newCustomer" className="link">
-            <a href="">Customer</a>
+            <a href="/customers/newCustomer">Nuevo Cliente</a>
           </Link>
           <Link className="link">
             <a href="">Ordenes</a>
@@ -36,29 +37,29 @@ const Root = () => {
           </Link>
         </nav>
         <main>
-          <h1>Juzmooth</h1>
-          <p>Habitos sanos para todos los dias.</p>
-          <img
-            src={
-              'https://images.unsplash.com/photo-1496318447583-f524534e9ce1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1405&q=80'
-            }
-          />
           <Switch>
-            <Route exact path="/home" />
-            <Route exact path="/products" component={ProductsList} />
-            <Route exact path="/customers" component={CustomersList} />
+            <Route exact path="/" exact component={Home} />
+            <Route exact path="/products" exact component={ProductsList} />
+            <Route exact path="/customers" exact component={CustomersList} />
             <Route
               exact
               path="/products/newProduct"
+              exact
               component={NewProductForm}
             />
             <Route
               exact
               path="/customers/newCustomer"
+              exact
               component={NewCustomerForm}
             />
-            <Route exact path="/products/:id" component={SingleProduct} />
-            <Route exact path="/customers/:id" component={SingleCustomer} />
+            <Route exact path="/products/:id" exact component={SingleProduct} />
+            <Route
+              exact
+              path="/customers/:id"
+              exact
+              component={SingleCustomer}
+            />
           </Switch>
         </main>
       </div>

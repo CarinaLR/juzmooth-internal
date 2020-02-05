@@ -68,3 +68,10 @@ input {
 img {
   width: 100vw;
 }
+
+.home {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
