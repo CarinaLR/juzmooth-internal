@@ -41,6 +41,7 @@ class ProductsList extends Component {
               >
                 Remove Product
               </button>
+              <button type="description">Description</button>
             </ul>
           ))}
         </div>
