@@ -48,6 +48,8 @@ class NewProductForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <br />
+        <h1>Nuevo Producto</h1>
         <label>
           Name:
           <br />

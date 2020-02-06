@@ -58,6 +58,8 @@ class NewCustomerForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <br />
+        <h1>Nuevo Cliente</h1>
         <label>
           Nombre:
           <br />
@@ -96,7 +98,7 @@ class NewCustomerForm extends Component {
           <br />
           <input
             type="text"
-            id="email"
+            id="address"
             onChange={this.handleChange}
             value={this.state.address}
           />
@@ -107,7 +109,7 @@ class NewCustomerForm extends Component {
           <br />
           <input
             type="text"
-            id="email"
+            id="order"
             onChange={this.handleChange}
             value={this.state.description}
           />

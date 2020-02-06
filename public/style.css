@@ -193,9 +193,28 @@ ul li {
   top: 150px;
 }
 
-/* #emojis {
-  opacity: 40%;
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: space-around;
+  padding: 10;
+  margin-left: 10;
+  margin-right: 10;
   position: relative;
-  top: 10;
-  bottom: 10;
-} */
+  top: 150px;
+  bottom: 150;
+  text-align: justify;
+}
+
+#description {
+  height: 75px;
+}
+
+#address {
+  height: 50px;
+}
+
+#order {
+  height: 75px;
+}
