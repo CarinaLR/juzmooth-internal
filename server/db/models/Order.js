@@ -6,28 +6,22 @@ const Order = db.define('orders', {
     type: Sequelize.BOOLEAN,
     defaultValue: true,
   },
-  clientFirstName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  clientLastName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  clientEmail: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      isEmail: true,
-    },
-  },
-  clientAddress: {
+  clientFullName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
   description: {
     type: Sequelize.TEXT,
     allowNull: false,
+  },
+  total: {
+    type: Sequelize.INTEGER,
+    validate: {
+      min: 0,
+    },
+    get() {
+      return this.getDataValue('total') / 100;
+    },
   },
   orderDate: {
     type: Sequelize.DATE,

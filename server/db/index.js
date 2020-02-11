@@ -3,6 +3,7 @@
 const db = require('./database');
 const Product = require('./models/Product');
 const Customer = require('./models/Customer');
+const Order = require('./models/Order');
 
 // The purpose of this module is to bring your Sequelize instance (`db`) together
 // with your models (which you should define in separate modules in this directory).
@@ -18,12 +19,17 @@ const Customer = require('./models/Customer');
 // Puppy.belongsTo(Owner)
 
 //ASSOCIATIONS
-Product.hasMany(Customer);
-Customer.belongsTo(Product);
+Order.hasMany(Customer);
+Customer.belongsTo(Order);
+
+// Product.hasMany(Customer);
+Product.hasMany(Order);
+Order.belongsTo(Product);
 
 module.exports = {
   // Include your models in this exports object as well!
   db,
   Customer,
   Product,
+  Order,
 };

@@ -3,6 +3,7 @@
 const router = require('express').Router();
 const Product = require('../db/models/Product');
 const Customer = require('../db/models/Customer');
+const Order = require('../db/models/Order');
 
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
@@ -103,6 +104,51 @@ router.delete('/products/:id', async (req, res, next) => {
   try {
     const foundProduct = await Product.findById(req.params.id);
     await foundProduct.destroy();
+    res.sendStatus(204);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+//===============ORDER-ROUTERS==================================
+
+router.get('/orders', async (req, res, next) => {
+  try {
+    const allOrders = await Order.findAll();
+    res.json(allOrders);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.get('/orders/:id', async (req, res, next) => {
+  try {
+    const orderById = await Order.findById(req.params.id);
+    res.json(orderById);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.post('/orders', async (req, res, next) => {
+  try {
+    const newOrder = await Order.create(req.body);
+    if (newOrder) {
+      res.json(newOrder.dataValue);
+    }
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.delete('/orders/:id', async (req, res, next) => {
+  try {
+    const foundOrder = await Order.findById(req.params.id);
+    await foundOrder.destroy();
     res.sendStatus(204);
   } catch (error) {
     console.error(error);
