@@ -2,6 +2,7 @@ const { db } = require('./server/db');
 const { green, red } = require('chalk');
 const Customer = require('./server/db/models/Customer');
 const Product = require('./server/db/models/Product');
+const Order = require('./server/db/models/Order');
 
 const customers = [
   {
@@ -10,7 +11,6 @@ const customers = [
     email: 'plopez@gmail.com',
     address: 'Las Acacias N47-56',
     description: '1 Cucumber Jugo Verde',
-    productId: 1,
   },
   {
     firstName: 'Mercy',
@@ -18,7 +18,6 @@ const customers = [
     email: 'mrodriguezz@gmail.com',
     address: 'Las Acacias N47-56',
     description: '3 Ginger Shots',
-    productId: 2,
   },
   {
     firstName: 'Ivonne',
@@ -26,7 +25,6 @@ const customers = [
     email: 'ilopez@gmail.com',
     address: 'Cumbaya N123-23',
     description: '2 Red Lemonade',
-    productId: 3,
   },
   {
     firstName: 'Jorge',
@@ -34,7 +32,6 @@ const customers = [
     email: 'jjaramillo@gmail.com',
     address: 'Cumbaya N123-23',
     description: '1 Turmeric Shot',
-    productId: 4,
   },
 ];
 
@@ -69,6 +66,45 @@ const products = [
   },
 ];
 
+const orders = [
+  {
+    active: true,
+    clientFulltName: 'Patricio Lopez',
+    description: '1 Cucumber Jugo Verde',
+    total: 5,
+    orderDate: 2020 / 1 / 25,
+    customerId: 1,
+    productId: 1,
+  },
+  {
+    active: true,
+    clientFullName: 'Mercy Rodriguez',
+    description: '3 Ginger Shots',
+    total: 7,
+    orderDate: 2020 / 1 / 25,
+    customerId: 2,
+    productId: 1,
+  },
+  {
+    active: true,
+    clientFullName: 'Ivonne Lopez',
+    description: '2 Red Lemonade',
+    total: 10,
+    orderDate: 2020 / 1 / 27,
+    customerId: 3,
+    productId: 2,
+  },
+  {
+    active: false,
+    clientFullName: 'Jorge Jaramillo',
+    description: '1 Turmeric Shot',
+    total: 5,
+    orderDate: 2020 / 1 / 29,
+    customerId: 4,
+    productId: 3,
+  },
+];
+
 const seed = async () => {
   await db.sync();
   //{force: true}
@@ -83,6 +119,12 @@ const seed = async () => {
   await Promise.all(
     customers.map(customer => {
       return Customer.create(customer);
+    })
+  );
+
+  await Promise.all(
+    orders.map(order => {
+      return Order.create(order);
     })
   );
 

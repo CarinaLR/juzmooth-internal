@@ -19,10 +19,9 @@ const Order = require('./models/Order');
 // Puppy.belongsTo(Owner)
 
 //ASSOCIATIONS
-Order.hasMany(Customer);
+Order.hasOne(Customer);
 Customer.belongsTo(Order);
 
-// Product.hasMany(Customer);
 Product.hasMany(Order);
 Order.belongsTo(Product);
 

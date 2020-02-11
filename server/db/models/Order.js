@@ -9,6 +9,8 @@ const Order = db.define('orders', {
   clientFullName: {
     type: Sequelize.STRING,
     allowNull: false,
+    defaultValue: 'cliente',
+    operatorsAliases: false,
   },
   description: {
     type: Sequelize.TEXT,
