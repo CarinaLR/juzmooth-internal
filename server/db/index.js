@@ -19,6 +19,7 @@ const Order = require('./models/Order');
 // Puppy.belongsTo(Owner)
 
 //ASSOCIATIONS
+// Order.hasOne(Customer);
 Order.hasOne(Customer);
 Customer.belongsTo(Order);
 

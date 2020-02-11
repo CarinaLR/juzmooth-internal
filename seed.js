@@ -74,7 +74,6 @@ const orders = [
     total: 5,
     orderDate: 2020 / 1 / 25,
     customerId: 1,
-    productId: 1,
   },
   {
     active: true,
@@ -83,7 +82,6 @@ const orders = [
     total: 7,
     orderDate: 2020 / 1 / 25,
     customerId: 2,
-    productId: 1,
   },
   {
     active: true,
@@ -92,7 +90,6 @@ const orders = [
     total: 10,
     orderDate: 2020 / 1 / 27,
     customerId: 3,
-    productId: 2,
   },
   {
     active: false,
@@ -101,7 +98,6 @@ const orders = [
     total: 5,
     orderDate: 2020 / 1 / 29,
     customerId: 4,
-    productId: 3,
   },
 ];
 
