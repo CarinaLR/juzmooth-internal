@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 class Home extends Component {
   render() {
+    console.log('here');
     return (
       <div className="home">
         <h1>Juzmooth</h1>
