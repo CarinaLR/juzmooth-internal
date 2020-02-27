@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../assets/jLogo.png';
 
 class Home extends Component {
   render() {
