@@ -27,6 +27,6 @@ createdb $MY_APP_NAME
 
 - `npm run start:dev`
 
-![](/app/assets/jLogo.png)
+![](/public/assets/jLogo.png)
 
-![](/app/assets/jAll.jpg)
+![](/public/assets/jAll.jpg)
