@@ -7,6 +7,7 @@ import SingleCustomer from './SingleCustomer';
 import NewProductForm from './NewProductForm';
 import NewCustomerForm from './NewCustomerForm';
 import Home from './Home';
+import Orders from './Oders';
 
 const Root = () => {
   return (
@@ -29,8 +30,8 @@ const Root = () => {
           <Link to="/customers/newCustomer" className="link">
             <a href="/customers/newCustomer">Nuevo Cliente</a>
           </Link>
-          <Link className="link">
-            <a href="">Ordenes</a>
+          <Link to="/orders" className="link">
+            <a href="/orders">Ordenes</a>
           </Link>
           <Link className="link">
             <a href="">Entregas</a>
@@ -60,6 +61,7 @@ const Root = () => {
               exact
               component={SingleCustomer}
             />
+            <Route exact path="/orders" exact component={Orders} />
           </Switch>
         </main>
       </div>

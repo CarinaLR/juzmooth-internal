@@ -25,6 +25,13 @@ const Customer = db.define('customers', {
     type: Sequelize.TEXT,
     allowNull: false,
   },
+  orderId: {
+    type: Sequelize.INTEGER,
+    references: {
+      model: 'Order',
+      key: 'id',
+    },
+  },
 });
 
 module.exports = Customer;

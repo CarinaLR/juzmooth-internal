@@ -27,6 +27,9 @@ class CustomersList extends Component {
         <p id="customerNote">
           Si necesitas mas informacion, por favor ingresa tu autorizacion.
         </p>
+        <div>
+          <img id="clientsPage" src={'./assets/jBottle.jpg'} />
+        </div>
         {this.props.customers.map(customer => (
           <ul className="customerListContainer" key={customer.id}>
             <Link to={`/customers/${customer.id}`}>
