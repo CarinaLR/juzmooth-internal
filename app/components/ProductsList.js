@@ -25,7 +25,7 @@ class ProductsList extends Component {
     return (
       <div className="productListContainer">
         <h1 id="productTitle">PRODUCTOS</h1>
-        <p className="note">Mira nuestros productos disponibles!</p>
+        <p className="note">Encuentra nuestros productos disponibles!</p>
         <div className="imgContainer">
           {this.props.products.map(product => (
             <ul key={product.id}>

@@ -46,21 +46,21 @@ const products = [
   {
     name: 'Red Lemonade',
     imageUrl:
-      'https://images.unsplash.com/photo-1549127554-0cf3baf6e45e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
+      'https://images.unsplash.com/photo-1487536988267-23b03fdfc3c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     description:
       'El consumo habitual de esta bebida ayuda a rehidratar mientras depura el organismo.',
   },
   {
-    name: 'Ginger Shot',
+    name: 'Ginger-Turmeric Shot',
     imageUrl:
       'https://images.unsplash.com/photo-1567667638406-db4d5f363abf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
     description:
       'Depura el organismo, calma los antojos de azucar por lo que es ideal para acompanar dietas para bajar de peso.',
   },
   {
-    name: 'Turmeric Shot',
+    name: 'Chai Tea',
     imageUrl:
-      'https://images.unsplash.com/photo-1498604214351-227898deb373?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80',
+      'https://images.unsplash.com/photo-1578741243467-2d4a41b697de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80',
     description:
       'Our mission dates to 1847 when founder Townsend Harris, an early champion of public education and a pioneering diplomat who was the first U.S.”',
   },
