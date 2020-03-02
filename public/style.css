@@ -9,7 +9,7 @@
 }
 
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  background: linear-gradient(#f8f8ff, #f8f8ff);
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -65,7 +65,7 @@ input {
   width: 380px;
 }
 
-#imgHome {
+.imgHome {
   width: 100vw;
 }
 
