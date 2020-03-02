@@ -17,7 +17,7 @@ Now that you've got the code, follow these steps to get acclimated:
 
 - Update project name and description in `package.json`
 - `npm install`
-- Create postgres databases (`MY_APP_NAME` should match the `name`
+- Create postgres database (`MY_APP_NAME` should match the `name`
   parameter in `package.json`):
 
 ```
