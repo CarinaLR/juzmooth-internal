@@ -8,7 +8,7 @@ class Home extends Component {
         <p>
           <h1>Habitos sanos para todos los dias.</h1>
         </p>
-        <img className="imgHome" src={'./assets/jLogo.png'} />
+        <img className="imgHome" src={'./assets/juzmooth.png'} />
         <img
           className="imgHome"
           src={
