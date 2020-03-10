@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class Orders extends Component {
   render() {
@@ -51,7 +51,7 @@ export default class Orders extends Component {
             </tr>
           </tbody>
         </table>
-        <img id="allProductsImg" src={'./assets/jAll.jpg'} />
+        <img id="allProductsImg" src={"./assets/jAll.jpg"} />
       </div>
     );
   }
