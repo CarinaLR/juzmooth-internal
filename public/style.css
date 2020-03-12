@@ -263,3 +263,32 @@ tr td {
 td {
   text-align: center;
 }
+
+.singleProduct {
+  padding: 0;
+  margin-left: 10;
+  margin-right: 10;
+  position: relative;
+  top: 15px;
+  bottom: 100px;
+}
+
+.selectedProduct {
+  display: flex;
+  justify-content: left;
+  color: rgb(98, 185, 90);
+  position: relative;
+  top: 20px;
+  bottom: 20px;
+}
+
+.singleImg {
+  width: 50vw;
+  height: 50vw;
+}
+
+.singleName {
+  display: flex;
+  padding: 50;
+  color: solid coral;
+}
