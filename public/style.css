@@ -9,12 +9,12 @@
 }
 
 body {
-  background: linear-gradient(#fffaf0, #fffaf0);
+  background: linear-gradient(#ffffff, #ffffff);
   height: 100vh;
   padding: 0;
   margin: 0;
   width: 100vw;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: "Open Sans", arial, sans-serif;
   color: rgb(98, 185, 90);
 }
 
@@ -90,7 +90,7 @@ input {
   padding: 20;
   margin: 0;
   margin-top: 20;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: "Open Sans", arial, sans-serif;
   color: rgb(98, 185, 90);
   position: relative;
   top: 75px;
@@ -153,7 +153,7 @@ ul li {
   padding: 20;
   margin: 0;
   margin-top: 20;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: "Open Sans", arial, sans-serif;
   color: rgb(98, 185, 90);
   position: relative;
   top: 75px;

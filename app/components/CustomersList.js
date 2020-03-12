@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { gettingCustomers, deleteCustomer } from '../reducers/customers';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { gettingCustomers, deleteCustomer } from "../reducers/customers";
+import { Link } from "react-router-dom";
 
 class CustomersList extends Component {
   constructor(props) {
@@ -28,14 +28,14 @@ class CustomersList extends Component {
           Si necesitas mas informacion, por favor ingresa tu autorizacion.
         </p>
         <div>
-          <img id="clientsPage" src={'./assets/jBottle.jpg'} />
+          <img id="clientsPage" src={"./assets/jGrass.jpg"} />
         </div>
         {this.props.customers.map(customer => (
           <ul className="customerListContainer" key={customer.id}>
             <Link to={`/customers/${customer.id}`}>
               <li>
                 {customer.firstName}
-                {'\n'}
+                {"\n"}
                 {customer.lastName}
               </li>
             </Link>
@@ -61,7 +61,7 @@ class CustomersList extends Component {
 const mapStateToProps = state => {
   return {
     products: state.products,
-    customers: state.customers,
+    customers: state.customers
   };
 };
 
@@ -72,7 +72,7 @@ const mapDispatchToProps = dispatch => {
     },
     deleteCustomer: id => {
       dispatch(deleteCustomer(id));
-    },
+    }
   };
 };
 
