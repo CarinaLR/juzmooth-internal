@@ -1,7 +1,7 @@
 {
   "name": "juzmooth-internal",
   "version": "0.0.1",
-  "description": "A review time project",
+  "description": "A web application where Juzmooth owners can manage orders, databases, and tracking deliveries.",
   "main": "main.js",
   "scripts": {
     "start:dev": "npm run build-watch & npm run start-server",
