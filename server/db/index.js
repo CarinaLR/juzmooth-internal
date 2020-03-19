@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const db = require('./database');
-const Product = require('./models/Product');
-const Customer = require('./models/Customer');
-const Order = require('./models/Order');
+const db = require("./database");
+const Product = require("./models/Product");
+const Customer = require("./models/Customer");
+const Order = require("./models/Order");
 
 // The purpose of this module is to bring your Sequelize instance (`db`) together
 // with your models (which you should define in separate modules in this directory).
@@ -19,17 +19,34 @@ const Order = require('./models/Order');
 // Puppy.belongsTo(Owner)
 
 //ASSOCIATIONS
-// Order.hasOne(Customer);
+
 Order.hasOne(Customer);
 Customer.belongsTo(Order);
 
 Product.hasMany(Order);
 Order.belongsTo(Product);
 
+//====New Associations=====
+// Order.hasOne(Customer);
+// Customer.hasMany(Order);
+
+// Customer.prototype.getActiveOrder = async function() {
+//   const orders = await this.getOrders();
+//   let order = orders.find(elem => elem.active);
+//   if (order) return order;
+
+//   const newOrder = await Order.create({ active: true });
+//   await newOrder.setUser(this);
+//   return newOrder;
+// };
+
+// Product.belongsToMany(Order);
+// Order.belongsToMany(Product);
+
 module.exports = {
   // Include your models in this exports object as well!
   db,
   Customer,
   Product,
-  Order,
+  Order
 };
