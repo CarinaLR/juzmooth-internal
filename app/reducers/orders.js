@@ -43,4 +43,46 @@ export const deleteAllFromOrder = product => ({
 
 //MIDDLEWARE AND REDUX-THUNK
 
+export const checkoutThunk = customerId => async dispatch => {
+  try {
+    await axios.put(`/api/customers/${customerId}/checkout`);
+    dispatch(checkout());
+  } catch (error) {
+    dispatch(console.error(error));
+  }
+};
+
+export const addOrderThunk = (product, customerId) => async dispatch => {
+  if (customerId) {
+    // perform an axios request to increment the threehouse in the logged-in user's cart,
+    await axios.put(`api/users/${customerId}/activeCart/add/${product.id}`);
+    //and then
+    dispatch(addToOrder(product));
+  } else {
+    dispatch(addToOrder(product));
+  }
+};
+
+export const removeOneThunk = (product, customerId) => async dispatch => {
+  if (customerId) {
+    await axios.put(
+      `api/customers/${customerId}/activeOrder/remove/${product.id}`
+    );
+    dispatch(removeOne(product));
+  } else {
+    dispatch(removeOne(product));
+  }
+};
+
+export const deleteAllThunk = (product, customerId) => async dispatch => {
+  if (customerId) {
+    await axios.delete(
+      `api/customers/${customerId}/activeOrder/delete/${product.id}`
+    );
+    dispatch(deleteAllFromOrder(product));
+  } else {
+    dispatch(deleteAllFromOrder(product));
+  }
+};
+
 //REDUCER
