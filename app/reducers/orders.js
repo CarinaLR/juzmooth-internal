@@ -7,6 +7,8 @@ const CHECKOUT = "CHECKOUT";
 const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 const REMOVE_ONE = "REMOVE_ONE";
 const DELETE_ALL = "DELETE_ALL";
+const GET_CUSTOMER = "GET_CUSTOMER";
+const REMOVE_CUSTOMER = "REMOVE_CUSTOMER";
 
 //INITIAL STATE
 
@@ -86,3 +88,62 @@ export const deleteAllThunk = (product, customerId) => async dispatch => {
 };
 
 //REDUCER
+export default function(order = [], action) {
+  switch (action.type) {
+    case ADD_TO_ORDER:
+      if (order.length !== 0) {
+        const matchingProduct = order.find(
+          element => element.product.id === action.product.id
+        );
+        if (matchingProduct) {
+          return order.map(element => {
+            if (element.product.id === action.product.id) {
+              element.quantity++;
+              return element;
+            }
+            return element;
+          });
+        }
+      }
+      return [...order, { product: action.product, quantity: 1 }];
+    case REMOVE_ONE:
+      {
+        if (order.length !== 0) {
+          const matchingProduct = order.find(
+            element => element.product.id === action.product.id
+          );
+          if (matchingProduct) {
+            const productsInOrder = order.map(element => {
+              if (element.product.id === action.product.id) {
+                element.quantity--;
+                return element;
+              }
+              return element;
+            });
+            return productsInOrder.filter(function(element) {
+              return element.quantity > 0;
+            });
+          }
+        }
+      }
+      break;
+    case CREATE_NEW_ORDER:
+      return [];
+    case GET_CUSTOMER:
+      return action.order;
+    case DELETE_ALL:
+      const newState = Object.assign([], order);
+
+      let indexOfProduct = order.findIndex(element => {
+        return element.product.id === action.product.id;
+      });
+      newState.splice(indexOfProduct, 1);
+      return newState;
+    case CHECKOUT:
+      return [];
+    case REMOVE_CUSTOMER:
+      return [];
+    default:
+      return order;
+  }
+}
