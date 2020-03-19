@@ -10,10 +10,6 @@ const DELETE_ALL = "DELETE_ALL";
 const GET_CUSTOMER = "GET_CUSTOMER";
 const REMOVE_CUSTOMER = "REMOVE_CUSTOMER";
 
-//INITIAL STATE
-
-const initialState = [];
-
 //ACTION CREATORS
 export const createNewOrder = () => ({
   type: CREATE_NEW_ORDER
