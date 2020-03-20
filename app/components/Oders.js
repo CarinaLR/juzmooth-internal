@@ -1,6 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  checkoutThunk,
+  addOrderThunk,
+  removeOneThunk,
+  deleteAllThunk
+} from "../reducers/orders";
 
-export default class Orders extends Component {
+class Orders extends Component {
   render() {
     return (
       <div>
@@ -56,3 +63,25 @@ export default class Orders extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    product: state.product,
+    customer: state.customer,
+    order: state.order
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {
+    checkout: customerId => dispatch(checkoutThunk(customerId)),
+    addToOrder: (product, customerId) =>
+      dispatch(addOrderThunk(product, customerId)),
+    removeOneFromOrder: (product, customerId) =>
+      dispatch(removeOneThunk(product, customerId)),
+    deleteAllFromOrder: (product, customerId) =>
+      dispatch(deleteAllThunk(product, customerId))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatch)(Orders);
