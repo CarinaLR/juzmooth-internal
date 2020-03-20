@@ -53,7 +53,7 @@ export const checkoutThunk = customerId => async dispatch => {
 export const addOrderThunk = (product, customerId) => async dispatch => {
   if (customerId) {
     // perform an axios request to increment the threehouse in the logged-in user's cart,
-    await axios.put(`api/users/${customerId}/activeCart/add/${product.id}`);
+    await axios.put(`api/customers/${customerId}/activeCart/add/${product.id}`);
     //and then
     dispatch(addToOrder(product));
   } else {

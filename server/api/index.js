@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const router = require('express').Router();
-const Product = require('../db/models/Product');
-const Customer = require('../db/models/Customer');
-const Order = require('../db/models/Order');
+const router = require("express").Router();
+const Product = require("../db/models/Product");
+const Customer = require("../db/models/Customer");
+const Order = require("../db/models/Order");
 
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
@@ -23,7 +23,7 @@ const Order = require('../db/models/Order');
 
 //================CUSTOMER-ROUTERS===============================
 
-router.get('/customers', async (req, res, next) => {
+router.get("/customers", async (req, res, next) => {
   try {
     const allCustomers = await Customer.findAll();
     res.json(allCustomers);
@@ -33,7 +33,7 @@ router.get('/customers', async (req, res, next) => {
   }
 });
 
-router.get('/customers/:id', async (req, res, next) => {
+router.get("/customers/:id", async (req, res, next) => {
   try {
     const customerById = await Customer.findById(req.params.id);
     res.json(customerById);
@@ -43,7 +43,7 @@ router.get('/customers/:id', async (req, res, next) => {
   }
 });
 
-router.post('/customer', async (req, res, next) => {
+router.post("/customer", async (req, res, next) => {
   try {
     const newCustomer = await Customer.create(req.body);
     if (newCustomer) {
@@ -55,7 +55,7 @@ router.post('/customer', async (req, res, next) => {
   }
 });
 
-router.delete('/customers/:id', async (req, res, next) => {
+router.delete("/customers/:id", async (req, res, next) => {
   try {
     const foundCustomer = await Customer.findById(req.params.id);
     await foundCustomer.destroy();
@@ -68,7 +68,7 @@ router.delete('/customers/:id', async (req, res, next) => {
 
 //===============PRODUCT-ROUTERS==================================
 
-router.get('/products', async (req, res, next) => {
+router.get("/products", async (req, res, next) => {
   try {
     const allProducts = await Product.findAll();
     res.json(allProducts);
@@ -78,7 +78,7 @@ router.get('/products', async (req, res, next) => {
   }
 });
 
-router.get('/products/:id', async (req, res, next) => {
+router.get("/products/:id", async (req, res, next) => {
   try {
     const productById = await Product.findById(req.params.id);
     res.json(productById);
@@ -88,7 +88,7 @@ router.get('/products/:id', async (req, res, next) => {
   }
 });
 
-router.post('/products', async (req, res, next) => {
+router.post("/products", async (req, res, next) => {
   try {
     const newProduct = await Product.create(req.body);
     if (newProduct) {
@@ -100,7 +100,7 @@ router.post('/products', async (req, res, next) => {
   }
 });
 
-router.delete('/products/:id', async (req, res, next) => {
+router.delete("/products/:id", async (req, res, next) => {
   try {
     const foundProduct = await Product.findById(req.params.id);
     await foundProduct.destroy();
@@ -113,7 +113,7 @@ router.delete('/products/:id', async (req, res, next) => {
 
 //===============ORDER-ROUTERS==================================
 
-router.get('/orders', async (req, res, next) => {
+router.get("/orders", async (req, res, next) => {
   try {
     const allOrders = await Order.findAll();
     res.json(allOrders);
@@ -123,7 +123,7 @@ router.get('/orders', async (req, res, next) => {
   }
 });
 
-router.get('/orders/:id', async (req, res, next) => {
+router.get("/orders/:id", async (req, res, next) => {
   try {
     const orderById = await Order.findById(req.params.id);
     res.json(orderById);
@@ -133,7 +133,7 @@ router.get('/orders/:id', async (req, res, next) => {
   }
 });
 
-router.post('/orders', async (req, res, next) => {
+router.post("/orders", async (req, res, next) => {
   try {
     const newOrder = await Order.create(req.body);
     if (newOrder) {
@@ -145,7 +145,20 @@ router.post('/orders', async (req, res, next) => {
   }
 });
 
-router.delete('/orders/:id', async (req, res, next) => {
+router.put("/orders/:id", async (req, res, next) => {
+  try {
+    const updatedOrder = await Order.findByPk(req.params.id);
+    if (updatedOrder) {
+      updatedOrder.update(req.body);
+      res.json(updatedOrder);
+    }
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.delete("/orders/:id", async (req, res, next) => {
   try {
     const foundOrder = await Order.findById(req.params.id);
     await foundOrder.destroy();
@@ -162,7 +175,7 @@ router.delete('/orders/:id', async (req, res, next) => {
 // error-handling endware!
 
 router.use((req, res, next) => {
-  const err = new Error('API route not found!');
+  const err = new Error("API route not found!");
   err.status = 404;
   next(err);
 });

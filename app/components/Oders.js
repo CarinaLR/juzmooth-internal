@@ -9,10 +9,58 @@ import {
 
 class Orders extends Component {
   render() {
+    // const { orders, customers } = this.props;
     return (
       <div>
         <h1> Lista de Pedidos </h1>
         <table className="checkout">
+          {/* <tbody>
+            {orders.map(elem => (
+              <tr key={elem.product.id}>
+                <td>{elem.product.clientFullName}</td>
+                <td>{elem.product.total}</td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      this.props.addToCart(
+                        elem.product,
+                        this.props.customers.id
+                      )
+                    }
+                  >
+                    +
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      this.props.removeOneFromOrder(
+                        elem.product,
+                        this.props.customers.id
+                      )
+                    }
+                  >
+                    -
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      this.props.deleteAllFromOrder(
+                        elem.product,
+                        this.props.customers.id
+                      )
+                    }
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody> */}
+
           <tbody>
             <tr>
               <th>OrdenID</th>
@@ -66,9 +114,9 @@ class Orders extends Component {
 
 const mapStateToProps = state => {
   return {
-    product: state.product,
-    customer: state.customer,
-    order: state.order
+    products: state.products,
+    customers: state.customers,
+    orders: state.orders
   };
 };
 
