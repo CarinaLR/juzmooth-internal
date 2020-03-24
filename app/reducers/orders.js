@@ -174,44 +174,44 @@ export const removeOrder = orderId => ({
 });
 
 //MIDDLEWARE AND REDUX-THUNK
-export const gettingCustomers = () => {
+export const gettingOrders = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get("/api/customers");
-      dispatch(getCustomers(data));
+      const { data } = await axios.get("/api/orders");
+      dispatch(getOrders(data));
     } catch (error) {
       dispatch(console.error(error));
     }
   };
 };
 
-export const getSingleCustomer = id => {
+export const getSingleOrder = id => {
   return async dispatch => {
     try {
-      const { data } = await axios.get(`/api/customers/${id}`);
-      dispatch(getCustomers(data));
+      const { data } = await axios.get(`/api/orders/${id}`);
+      dispatch(getOrders(data));
     } catch (error) {
       dispatch(console.error(error));
     }
   };
 };
 
-export const newCustomer = newCustomer => {
+export const newOrder = newOrder => {
   return async dispatch => {
     try {
-      const { data } = await axios.post("/api/customer", newCustomer);
-      dispatch(addCustomer(data));
+      const { data } = await axios.post("/api/orders", newOrder);
+      dispatch(addOrder(data));
     } catch (error) {
       dispatch(console.error(error));
     }
   };
 };
 
-export const deleteCustomer = id => {
+export const deleteOrder = id => {
   return async dispatch => {
     try {
-      const { data } = await axios.delete(`/api/customers/${id}`);
-      dispatch(removeCustomer(data));
+      const { data } = await axios.delete(`/api/orders/${id}`);
+      dispatch(removeOrder(data));
     } catch (error) {
       dispatch(console.error(error));
     }
