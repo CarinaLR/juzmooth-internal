@@ -1,37 +1,37 @@
-import axios from 'axios';
+import axios from "axios";
 
 //ACTION TYPE
-const GET_CUSTOMERS = 'GET_CUSTOMERS';
-const GET_CUSTOMER = 'GET_CUSTOMER';
-const ADD_CUSTOMER = 'ADD_CUSTOMER';
-const REMOVE_CUSTOMER = 'REMOVE_CUSTOMER';
+const GET_CUSTOMERS = "GET_CUSTOMERS";
+const GET_CUSTOMER = "GET_CUSTOMER";
+const ADD_CUSTOMER = "ADD_CUSTOMER";
+const REMOVE_CUSTOMER = "REMOVE_CUSTOMER";
 
 //ACTION CREATORS
 export const getCustomers = data => ({
   type: GET_CUSTOMERS,
-  customers: data,
+  customers: data
 });
 
 export const getOneCustomer = customer => ({
   type: GET_CUSTOMER,
-  customer,
+  customer
 });
 
 export const addCustomer = newCustomer => ({
   type: ADD_CUSTOMER,
-  customers: newCustomer,
+  customers: newCustomer
 });
 
 export const removeCustomer = customerId => ({
   type: REMOVE_CUSTOMER,
-  customerId,
+  customerId
 });
 
 //MIDDLEWARE AND REDUX-THUNK
 export const gettingCustomers = () => {
   return async dispatch => {
     try {
-      const { data } = await axios.get('/api/customers');
+      const { data } = await axios.get("/api/customers");
       dispatch(getCustomers(data));
     } catch (error) {
       dispatch(console.error(error));
@@ -53,7 +53,7 @@ export const getSingleCustomer = id => {
 export const newCustomer = newCustomer => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('/api/customers', newCustomer);
+      const { data } = await axios.post("/api/customer", newCustomer);
       dispatch(addCustomer(data));
     } catch (error) {
       dispatch(console.error(error));
