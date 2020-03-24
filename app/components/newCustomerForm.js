@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { newCustomer } from '../reducers/customers';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { newCustomer } from "../reducers/customers";
+import { connect } from "react-redux";
 
 class NewCustomerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      address: '',
-      description: '',
-      errorMessage: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      description: "",
+      errorMessage: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class NewCustomerForm extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.id]: event.target.value,
+      [event.target.id]: event.target.value
     });
   }
 
@@ -36,22 +36,22 @@ class NewCustomerForm extends Component {
       lastName: lastName,
       email: email,
       address: address,
-      description: description,
+      description: description
     };
 
     try {
       this.props.newCustomer(newData);
       this.setState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        address: '',
-        description: '',
-        errorMessage: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        address: "",
+        description: "",
+        errorMessage: ""
       });
     } catch (error) {
       console.error(error);
-      this.setState({ errorMessage: 'There was a problem adding customer' });
+      this.setState({ errorMessage: "There was a problem adding customer" });
     }
   }
 
@@ -109,7 +109,7 @@ class NewCustomerForm extends Component {
           <br />
           <input
             type="text"
-            id="order"
+            id="description"
             onChange={this.handleChange}
             value={this.state.description}
           />
@@ -124,7 +124,7 @@ class NewCustomerForm extends Component {
 const mapStateToProps = state => {
   return {
     products: state.products,
-    customers: state.customers,
+    customers: state.customers
   };
 };
 
@@ -132,7 +132,7 @@ const mapDispatchToProps = dispatch => {
   return {
     newCustomer: data => {
       dispatch(newCustomer(data));
-    },
+    }
   };
 };
 
