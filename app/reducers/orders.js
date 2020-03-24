@@ -219,16 +219,16 @@ export const deleteOrder = id => {
 };
 
 //REDUCER
-export default function reducerCustomers(state = [], action) {
+export default function reducerOrders(state = [], action) {
   switch (action.type) {
-    case GET_CUSTOMERS:
-      return action.customers;
-    case GET_CUSTOMER:
-      return action.customer;
-    case ADD_CUSTOMER:
-      return [...state, action.customers];
-    case REMOVE_CUSTOMER:
-      return state.filter(customer => customer.id !== action.customerId);
+    case GET_ORDERS:
+      return action.orders;
+    case GET_ORDER:
+      return action.order;
+    case ADD_ORDER:
+      return [...state, action.orders];
+    case REMOVE_ORDER:
+      return state.filter(order => order.id !== action.orderId);
     default:
       return state;
   }
