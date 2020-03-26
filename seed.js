@@ -72,7 +72,7 @@ const orders = [
     clientFulltName: "Patricio Lopez",
     description: "1 Cucumber Jugo Verde",
     total: 5,
-    orderDate: 2020 / 1 / 25,
+    orderDate: 2020 - 1 - 25,
     customerId: 1
   },
   {
@@ -80,7 +80,7 @@ const orders = [
     clientFullName: "Mercy Rodriguez",
     description: "3 Ginger Shots",
     total: 7,
-    orderDate: 2020 / 1 / 25,
+    orderDate: 2020 - 1 - 25,
     customerId: 2
   },
   {
@@ -88,7 +88,7 @@ const orders = [
     clientFullName: "Ivonne Lopez",
     description: "2 Red Lemonade",
     total: 10,
-    orderDate: 2020 / 1 / 27,
+    orderDate: 2020 - 1 - 27,
     customerId: 3
   },
   {
@@ -96,7 +96,7 @@ const orders = [
     clientFullName: "Jorge Jaramillo",
     description: "1 Turmeric Shot",
     total: 5,
-    orderDate: 2020 / 1 / 29,
+    orderDate: 2020 - 1 - 29,
     customerId: 4
   }
 ];
