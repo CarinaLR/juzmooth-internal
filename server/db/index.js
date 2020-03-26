@@ -4,6 +4,7 @@ const db = require("./database");
 const Product = require("./models/Product");
 const Customer = require("./models/Customer");
 const Order = require("./models/Order");
+const customerOrder = require("./models/CustomerOrder");
 
 // The purpose of this module is to bring your Sequelize instance (`db`) together
 // with your models (which you should define in separate modules in this directory).
@@ -20,15 +21,18 @@ const Order = require("./models/Order");
 
 //ASSOCIATIONS
 
+// Order.hasOne(Customer);
+// Customer.belongsTo(Order);
+
+// Product.hasMany(Order);
+// Order.belongsTo(Product);
+
+//====New Associations=====
 Order.hasOne(Customer);
-Customer.belongsTo(Order);
+Customer.belongsToMany(Order, { through: customerOrder });
 
 Product.hasMany(Order);
 Order.belongsTo(Product);
-
-//====New Associations=====
-// Order.hasOne(Customer);
-// Customer.hasMany(Order);
 
 // Customer.prototype.getActiveOrder = async function() {
 //   const orders = await this.getOrders();
@@ -39,9 +43,6 @@ Order.belongsTo(Product);
 //   await newOrder.setUser(this);
 //   return newOrder;
 // };
-
-// Product.belongsToMany(Order);
-// Order.belongsToMany(Product);
 
 module.exports = {
   // Include your models in this exports object as well!
