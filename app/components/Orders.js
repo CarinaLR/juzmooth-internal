@@ -41,6 +41,15 @@ class Orders extends Component {
               <th>Fecha de Entrega</th>
               <th>Status</th>
             </tr>
+            {this.props.orders.map(order => (
+              <tr key={order.id}>
+                <td>{order.id}</td>
+                <td>{order.clientFullName}</td>
+                <td>{order.description}</td>
+                <input id="date"></input>
+                <td>{order.active}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
         <img id="allProductsImg" src={"./assets/jAll.jpg"} />
