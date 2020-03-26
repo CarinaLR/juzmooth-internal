@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import ProductsList from './ProductsList';
-import CustomersList from './CustomersList';
-import SingleProduct from './SingleProduct';
-import SingleCustomer from './SingleCustomer';
-import NewProductForm from './NewProductForm';
-import NewCustomerForm from './NewCustomerForm';
-import Home from './Home';
-import Orders from './Oders';
+import React from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import ProductsList from "./ProductsList";
+import CustomersList from "./CustomersList";
+import SingleProduct from "./SingleProduct";
+import SingleCustomer from "./SingleCustomer";
+import NewProductForm from "./NewProductForm";
+import NewCustomerForm from "./NewCustomerForm";
+import Home from "./Home";
+import Orders from "./Orders";
 
 const Root = () => {
   return (
