@@ -68,36 +68,32 @@ const products = [
 
 const orders = [
   {
+    firstName: "Patricio",
+    lastName: "Lopez",
     active: true,
-    clientFulltName: "Patricio Lopez",
     description: "1 Cucumber Jugo Verde",
-    total: 5,
-    orderDate: 2020 - 1 - 25,
-    customerId: 1
+    orderDate: 2020 - 1 - 25
   },
   {
+    firstName: "Mercy",
+    lastName: "Rodriguez",
     active: true,
-    clientFullName: "Mercy Rodriguez",
     description: "3 Ginger Shots",
-    total: 7,
-    orderDate: 2020 - 1 - 25,
-    customerId: 2
+    orderDate: 2020 - 1 - 25
   },
   {
+    firstName: "Ivonne",
+    lastName: "Lopez",
     active: true,
-    clientFullName: "Ivonne Lopez",
     description: "2 Red Lemonade",
-    total: 10,
-    orderDate: 2020 - 1 - 27,
-    customerId: 3
+    orderDate: 2020 - 1 - 27
   },
   {
+    firstName: "Jorge",
+    lastName: "Jaramillo",
     active: false,
-    clientFullName: "Jorge Jaramillo",
     description: "1 Turmeric Shot",
-    total: 5,
-    orderDate: 2020 - 1 - 29,
-    customerId: 4
+    orderDate: 2020 - 1 - 29
   }
 ];
 

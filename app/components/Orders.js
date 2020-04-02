@@ -44,7 +44,7 @@ class Orders extends Component {
             {this.props.orders.map(order => (
               <tr key={order.id}>
                 <td>{order.id}</td>
-                <td>{order.clientFullName}</td>
+                <td>{order.firstName}</td>
                 <td>{order.description}</td>
                 <td>{order.orderDate}</td>
                 <td>{order.active}</td>

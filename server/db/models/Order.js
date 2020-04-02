@@ -3,28 +3,21 @@ const moment = require("moment");
 const db = require("../database");
 
 const Order = db.define("orders", {
+  firstName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  lastName: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   active: {
     type: Sequelize.BOOLEAN,
     defaultValue: true
   },
-  clientFullName: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    defaultValue: "Revisar pedido",
-    operatorsAliases: false
-  },
   description: {
     type: Sequelize.TEXT,
     allowNull: false
-  },
-  total: {
-    type: Sequelize.INTEGER,
-    validate: {
-      min: 0
-    },
-    get() {
-      return this.getDataValue("total") / 100;
-    }
   },
   orderDate: {
     type: Sequelize.DATE,
