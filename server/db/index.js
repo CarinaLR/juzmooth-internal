@@ -21,8 +21,8 @@ const customerOrder = require("./models/CustomerOrder");
 
 //ASSOCIATIONS
 
-// Order.hasOne(Customer);
-// Customer.belongsTo(Order);
+// Customer.hasMany(Order);
+// Order.belongsTo(Customer);
 
 // Product.hasMany(Order);
 // Order.belongsTo(Product);
@@ -30,9 +30,8 @@ const customerOrder = require("./models/CustomerOrder");
 //====New Associations=====
 Order.hasOne(Customer);
 Customer.belongsToMany(Order, { through: customerOrder });
-
-Product.hasMany(Order);
-Order.belongsTo(Product);
+Order.hasMany(Product);
+// Product.belongsTo(Order);
 
 // Customer.prototype.getActiveOrder = async function() {
 //   const orders = await this.getOrders();
@@ -49,5 +48,5 @@ module.exports = {
   db,
   Customer,
   Product,
-  Order
+  Order,
 };

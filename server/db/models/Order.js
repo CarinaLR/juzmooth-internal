@@ -5,19 +5,19 @@ const db = require("../database");
 const Order = db.define("orders", {
   firstName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   lastName: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   active: {
     type: Sequelize.BOOLEAN,
-    defaultValue: true
+    defaultValue: true,
   },
   description: {
     type: Sequelize.TEXT,
-    allowNull: false
+    allowNull: false,
   },
   orderDate: {
     type: Sequelize.DATE,
@@ -25,8 +25,8 @@ const Order = db.define("orders", {
       // you have to intall moment() in order to use date format. npm intall moment -> then require. Moment gives us the current date and time.
       const date = moment();
       return date.format("YYYY-MM-DD");
-    }
-  }
+    },
+  },
 });
 
 module.exports = Order;
