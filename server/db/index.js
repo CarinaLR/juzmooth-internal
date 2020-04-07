@@ -21,11 +21,10 @@ const customerOrder = require("./models/CustomerOrder");
 
 //ASSOCIATIONS
 
-// Customer.hasMany(Order);
+// Product.belongsTo(Order);
+// Order.hasMany(Product);
 // Order.belongsTo(Customer);
-
-// Product.hasMany(Order);
-// Order.belongsTo(Product);
+// Customer.hasMany(Order);
 
 //====New Associations=====
 Order.hasOne(Customer);
