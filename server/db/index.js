@@ -21,6 +21,7 @@ const Order = require("./models/Order");
 
 //ASSOCIATIONS
 
+//Expanding on the above, in cases where we have one source connected to multiple target use hasMany in asssociations. And use hasOne, and belongsTo insert the association key in different models from each other.
 Product.belongsTo(Order);
 Order.hasMany(Product);
 Order.belongsTo(Customer);

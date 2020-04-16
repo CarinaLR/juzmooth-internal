@@ -206,7 +206,7 @@ const orders = [
   },
 ];
 
-const orderRows = orders[0];
+// const orderRows = orders[0];
 
 const products = [
   {
