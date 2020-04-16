@@ -136,6 +136,8 @@ const Customer = require("./server/db/models/Customer");
 const Product = require("./server/db/models/Product");
 const Order = require("./server/db/models/Order");
 
+//In our tables, the customerId is a column in the order table. The association of a foreign id in a table is a belongsTo relationship. "table belongs to a column".
+
 const customers = [
   {
     firstName: "Patricio",
