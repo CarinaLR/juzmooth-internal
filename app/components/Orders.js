@@ -4,7 +4,7 @@ import {
   gettingOrders,
   getSingleOrder,
   newOrder,
-  deleteOrder
+  deleteOrder,
 } from "../reducers/orders";
 
 class Orders extends Component {
@@ -41,13 +41,13 @@ class Orders extends Component {
               <th>Fecha de Pedido</th>
               <th>Status</th>
             </tr>
-            {this.props.orders.map(order => (
+            {this.props.orders.map((order) => (
               <tr key={order.id}>
                 <td>{order.id}</td>
                 <td>{order.firstName}</td>
                 <td>{order.description}</td>
                 <td>{order.orderDate}</td>
-                <td>{order.active}</td>
+                <td>{order.status}</td>
               </tr>
             ))}
           </tbody>
@@ -58,19 +58,19 @@ class Orders extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     products: state.products,
     customers: state.customers,
-    orders: state.orders
+    orders: state.orders,
   };
 };
 
-const mapDispatch = dispatch => {
+const mapDispatch = (dispatch) => {
   return {
     gettingOrders: () => dispatch(gettingOrders()),
-    newOrder: newOrder => dispatch(newOrder(newOrder)),
-    deleteOrder: orderId => dispatch(deleteOrder(orderId))
+    newOrder: (newOrder) => dispatch(newOrder(newOrder)),
+    deleteOrder: (orderId) => dispatch(deleteOrder(orderId)),
   };
 };
 
