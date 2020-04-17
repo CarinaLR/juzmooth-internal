@@ -33,9 +33,12 @@ router.get("/customers", async (req, res, next) => {
   }
 });
 
+//joining tables using Sequelize - declaring includes (and nested includes) while performing actions using Sequelize models. The /customers/:id endpoint begins by querying the customers table, but this table is linked to others by includes.
 router.get("/customers/:id", async (req, res, next) => {
   try {
-    const customerById = await Customer.findById(req.params.id);
+    const customerById = await Customer.findById(req.params.id, {
+      include: [{ model: Order }],
+    });
     res.json(customerById);
   } catch (error) {
     console.error(error);
