@@ -27,21 +27,17 @@ Order.hasMany(Product);
 Order.belongsTo(Customer);
 Customer.hasMany(Order);
 
-//====New Associations=====
-// Order.hasOne(Customer);
-// Customer.belongsToMany(Order, { through: customerOrder });
-// Order.hasMany(Product);
-// Product.belongsTo(Order);
+//Each customer is assign to an order. Once the order it's placed, the order gets active.
 
-// Customer.prototype.getActiveOrder = async function() {
-//   const orders = await this.getOrders();
-//   let order = orders.find(elem => elem.active);
-//   if (order) return order;
+Customer.prototype.getActiveOrder = async function () {
+  const orders = await this.getOrders();
+  let order = orders.find((elem) => elem.active);
+  if (order) return order;
 
-//   const newOrder = await Order.create({ active: true });
-//   await newOrder.setUser(this);
-//   return newOrder;
-// };
+  const newOrder = await Order.create({ active: true });
+  await newOrder.setUser(this);
+  return newOrder;
+};
 
 module.exports = {
   // Include your models in this exports object as well!
