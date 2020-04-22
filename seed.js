@@ -273,3 +273,5 @@ seed().catch((err) => {
   console.error(err);
   db.close();
 });
+
+// "start": "echo 'Running server for production - developers, use npm run start:dev for development' && node main"
