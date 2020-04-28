@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A web application where Juzmooth owners can manage orders, databases, and tracking deliveries.",
   "main": "main.js",
+  "engines": {
+    "node": "12.11.1"
+  },
   "scripts": {
     "start:dev": "npm run build-watch & npm run start-server",
     "start-server": "nodemon --watch server main.js -e html,js,css",
