@@ -11,10 +11,6 @@ Built on a backend with `express`/`sequelize` and a frontend with
 To use this as boilerplate, you'll need to take the following steps:
 
 - Create a new, empty empty repo on Github and clone it to your local machine
-- Run the following commands:
-
-Now that you've got the code, follow these steps to get acclimated:
-
 - Update project name and description in `package.json`
 - `npm install`
 - Create postgres database (`MY_APP_NAME` should match the `name`
